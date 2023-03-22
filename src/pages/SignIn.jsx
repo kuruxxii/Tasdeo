@@ -36,7 +36,8 @@ export default function SignIn() {
       );
       const user = userCredential.user;
       if (user) {
-        navigate("/");
+        toast.success("Success!");
+        navigate("/dashboard");
       }
     } catch (error) {
       toast.error("Bad user credentials");

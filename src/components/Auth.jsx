@@ -1,16 +1,11 @@
 import React from "react";
-// import { Outlet } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-// import useAuthStatus from "../hooks/useAuthStatus";
-// import Spinner from "./Spinner";
+import { getAuth } from "firebase/auth";
 
 export default function Auth({ children }) {
-  // const { loggedIn, checkingStatus } = useAuthStatus();
-  // if (checkingStatus) {
-  //   return <Spinner />;
-  // }
-  const loggedIn = false;
-  if (loggedIn) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (user) {
     return <>{children}</>;
   } else {
     return <Navigate to="/sign-in" replace />;
