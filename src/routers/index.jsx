@@ -3,7 +3,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
 import Dashboard from "../pages/Dashboard";
-import Tagging from "../pages/Tagging";
+import Remark from "../pages/Remark";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 // layouts
@@ -27,8 +27,8 @@ export default function Routers() {
           element: <Dashboard />,
         },
         {
-          path: "tagging",
-          element: <Tagging />,
+          path: "remark",
+          element: <Remark />,
         },
         {
           path: "about",

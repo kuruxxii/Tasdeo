@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
+
+body {
+  background-color: #171719;
+  opacity: 0.73;
+  color: #fff;
+}
+
 @tailwind utilities;
