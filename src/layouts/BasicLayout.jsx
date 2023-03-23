@@ -3,7 +3,7 @@ import { MdDashboard, MdCommentBank, MdPeople } from "react-icons/md";
 
 export default function BasicLayout() {
   return (
-    <div className="w-screen h-screen flex">
+    <div className="w-screen h-screen flex text-white">
       <nav className="bg-nav h-screen w-1/5 flex flex-col justify-center items-center space-y-16 text-xl">
         <Link to="dashboard">
           <span className="flex justify-center items-center">
@@ -24,7 +24,7 @@ export default function BasicLayout() {
           </span>
         </Link>
       </nav>
-      <main className="h-screen w-4/5">
+      <main className="bg-base h-screen w-4/5">
         <Outlet />
       </main>
     </div>
