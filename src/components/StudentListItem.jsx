@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function StudentCard() {
+export default function StudentListItem() {
   return (
     <div className="bg-nav w-80 h-40 rounded-xl px-6 py-6 mb-4 flex flex-col justify-around items-left relative">
       <p className="text-bright text-2xl">Taha Ahamed</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ClassCard() {
+export default function Class() {
   return (
     <div className="bg-nav h-44 rounded-xl px-6 py-6 mb-4 relative flex flex-col justify-around items-left">
       <p className="text-4xl">Introduction to Social Computing</p>

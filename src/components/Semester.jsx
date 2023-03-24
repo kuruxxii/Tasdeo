@@ -1,5 +1,5 @@
 import React from "react";
-import ClassCard from "./ClassCard";
+import Class from "./Class";
 
 export default function ClassTime() {
   return (
@@ -7,9 +7,9 @@ export default function ClassTime() {
       <p className="my-1.5 text-xl">2022 Fall</p>
       <div className="w-11/12 border border-gray"></div>
       <div className="w-11/12 py-5">
-        <ClassCard />
-        <ClassCard />
-        <ClassCard />
+        <Class />
+        <Class />
+        <Class />
       </div>
     </div>
   );
