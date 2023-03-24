@@ -6,6 +6,7 @@ export default function ClassDetail() {
     <div className="w-full h-full overflow-auto">
       <StudentList />
       <StudentList />
+      <StudentList />
     </div>
   );
 }

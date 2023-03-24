@@ -3,11 +3,12 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
 import Dashboard from "../pages/Dashboard";
-import Remark from "../pages/Remark";
+import Interview from "../pages/Interview";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 import ClassDetail from "../pages/ClassDetail";
 import HistoryRemarks from "../pages/HistoryRemarks";
+import RemarkForm from "../pages/RemarkForm";
 // layouts
 import BasicLayout from "../layouts/BasicLayout";
 // components
@@ -29,8 +30,8 @@ export default function Routers() {
           element: <Dashboard />,
         },
         {
-          path: "remark",
-          element: <Remark />,
+          path: "interview",
+          element: <Interview />,
         },
         {
           path: "about",
@@ -43,6 +44,10 @@ export default function Routers() {
         {
           path: "history-remarks",
           element: <HistoryRemarks />,
+        },
+        {
+          path: "remark-form",
+          element: <RemarkForm />,
         },
       ],
     },
