@@ -6,6 +6,8 @@ import Dashboard from "../pages/Dashboard";
 import Remark from "../pages/Remark";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
+import ClassDetail from "../pages/ClassDetail";
+import HistoryRemarks from "../pages/HistoryRemarks";
 // layouts
 import BasicLayout from "../layouts/BasicLayout";
 // components
@@ -33,6 +35,14 @@ export default function Routers() {
         {
           path: "about",
           element: <About />,
+        },
+        {
+          path: "class-detail",
+          element: <ClassDetail />,
+        },
+        {
+          path: "history-remarks",
+          element: <HistoryRemarks />,
         },
       ],
     },
