@@ -1,12 +1,12 @@
 import React from "react";
-import ClassTime from "../components/ClassTime";
+import Semester from "../components/Semester";
 
 export default function Dashboard() {
   return (
     <div className="w-full h-full overflow-auto">
-      <ClassTime />
-      <ClassTime />
-      <ClassTime />
+      <Semester />
+      <Semester />
+      <Semester />
     </div>
   );
 }

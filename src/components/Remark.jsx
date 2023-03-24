@@ -8,8 +8,8 @@ export default function Remark() {
       <h3 class="text-lg font-semibold">by Conor Brand</h3>
       <p class="text-white font-normal">
         All of the pages and components are first designed in Figma and we keep
-        a parity between the two versions even as we update the project. All of
-        the pages and components are first designed in Figma and we.
+        a parity between the two versions even as we update the project. Ell
+        faiewfo sanv vasio nevvawe fwwvwein sf.
       </p>
     </li>
   );
