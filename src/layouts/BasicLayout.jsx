@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
-import { MdDashboard, MdCommentBank, MdPeople } from "react-icons/md";
+import { MdDashboard, MdPeople } from "react-icons/md";
+import { BiConversation } from "react-icons/bi";
 
 export default function BasicLayout() {
   return (
@@ -11,10 +12,10 @@ export default function BasicLayout() {
             DASHBOARD
           </span>
         </Link>
-        <Link to="remark">
+        <Link to="interview">
           <span className="flex justify-center items-center">
-            <MdCommentBank className="mr-4" />
-            REMARK
+            <BiConversation className="mr-4" />
+            INTERVIEW
           </span>
         </Link>
         <Link to="about">
