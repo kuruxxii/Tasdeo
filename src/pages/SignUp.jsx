@@ -59,7 +59,7 @@ export default function SignUp() {
       await setDoc(doc(db, "professors", user.uid), formDataCopy);
 
       toast.success("Success!");
-      navigate("/dashboard");
+      navigate("/overview");
     } catch (error) {
       toast.error("Something went wrong!");
     }
