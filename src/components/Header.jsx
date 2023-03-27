@@ -27,9 +27,9 @@ export default function Header() {
           style={({ isActive }) => (isActive ? activeStyles : null)}>
           ABOUT
         </NavLink>
-        <Link to="login">
+        <Link to="sign-in">
           {/* <img src="../assets/images/avatar-icon.png" className="login-icon" /> */}
-          log in
+          log-in ICON
         </Link>
       </nav>
     </header>
