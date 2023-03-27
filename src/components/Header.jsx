@@ -9,21 +9,21 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <header className="border h-16 flex justify-around items-center">
       <Link to="/">#Tasdeo.O</Link>
-      <nav>
+      <nav className="flex justify-between items-center space-x-4">
         <NavLink
           to="dashboard"
           style={({ isActive }) => (isActive ? activeStyles : null)}>
           DASHBOARD
         </NavLink>
         <NavLink
-          to="about"
+          to="interview"
           style={({ isActive }) => (isActive ? activeStyles : null)}>
           INTERVIEW
         </NavLink>
         <NavLink
-          to="vans"
+          to="about"
           style={({ isActive }) => (isActive ? activeStyles : null)}>
           ABOUT
         </NavLink>
