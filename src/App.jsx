@@ -12,14 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // pages
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
-import ForgotPassword from "../pages/ForgotPassword";
-import NotFound from "../pages/NotFound";
-import ClassDetail from "../pages/ClassDetail";
-
 // layouts
-import BasicLayout from "../layouts/BasicLayout";
 // components
 
 function App() {
