@@ -11,25 +11,20 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// pages
 // layouts
+import Layout from "./layouts/Layout";
+// pages
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
 // components
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Outlet />}>
-        <Route path="dashboard" element={<BasicLayout />}>
-          <Route index element={<Classes />} loader={classesLoader} />
-          <Route path="classes/:id" />
-          {/* <Route
-            path="interview"
-            element={<Interview />}
-            loader={async ({ request }) => await requireAuth(request)}
-          />
-          <Route path="about" element={<About />} /> */}
-        </Route>
-
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
         <Route path="sign-in" element={<SignIn />}></Route>
         <Route path="sign-up" element={<SignUp />}></Route>
         <Route path="forgot-password" element={<ForgotPassword />}></Route>
