@@ -5,6 +5,6 @@ export async function requireAuth() {
   const auth = getAuth();
   const user = auth.currentUser;
   if (!user) {
-    throw redirect("/login")
+    throw redirect("/sign-in")
   }
 }
