@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="mb-5 h-screen">
         <Outlet />
       </main>
       <Footer />

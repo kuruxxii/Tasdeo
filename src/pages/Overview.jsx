@@ -1,9 +1,9 @@
 import React from "react";
 import Semester from "../components/Semester";
 
-export default function Classes() {
+export default function Overview() {
   return (
-    <div className="w-full h-full overflow-auto">
+    <div className="h-full overflow-auto">
       <Semester />
       <Semester />
       <Semester />
