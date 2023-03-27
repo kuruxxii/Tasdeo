@@ -9,13 +9,13 @@ export default function Header() {
   };
 
   return (
-    <header className="border h-16 flex justify-around items-center">
+    <header className="border h-28 flex justify-around items-center">
       <Link to="/">#Tasdeo.O</Link>
       <nav className="flex justify-between items-center space-x-4">
         <NavLink
-          to="dashboard"
+          to="overview"
           style={({ isActive }) => (isActive ? activeStyles : null)}>
-          DASHBOARD
+          OVERVIEW
         </NavLink>
         <NavLink
           to="interview"

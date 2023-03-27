@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-full overflow-auto">
       <h1>MOriewof in vicetorss.</h1>
       <p>
         MOriewof in vicetorss MOriewof in vicetorss MOriewof in vicetorss

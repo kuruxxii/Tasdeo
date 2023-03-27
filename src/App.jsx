@@ -15,6 +15,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Layout from "./layouts/Layout";
 // pages
 import Home from "./pages/Home";
+import Overview from "./pages/Overview";
+import Interview from "./pages/Interview";
+import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -26,6 +29,9 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="overview" element={<Overview />} />
+        <Route path="interview" element={<Interview />} />
+        <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
