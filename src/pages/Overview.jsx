@@ -48,7 +48,7 @@ export default function Overview() {
   const classes = useLoaderData();
   console.log(classes);
   const classElements = classes.map(class => {
-    return <Class courseName={class.courseName} section={class.section} studentIds={class.studentIds} />
+    return <Class key={class.classId} courseName={class.courseName} section={class.section} studentIds={class.studentIds} />
   })
   return (
     <div className="h-full overflow-auto">
