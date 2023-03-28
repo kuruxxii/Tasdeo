@@ -1,21 +1,62 @@
 import React from "react";
-import Semester from "../components/Semester";
+import Semester from "../oldComponents/Semester";
 import { useLoaderData } from "react-router-dom";
 import { requireAuth } from "../util";
+import { getAuth } from "firebase/auth";
+import {
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
+import { db } from "../config/firebase";
+import Class from "../components/Class";
 
 export async function loader() {
   await requireAuth();
-  return "this is a huge step";
+  const auth = getAuth();
+  const user = auth.currentUser;
+  // 获取教授信息
+  const professorId = user.uid;
+  // const professorDocRef = doc(db, "professors", professorId);
+  // const professorDocSnap = await getDoc(professorDocRef);
+  // if (professorDocSnap.exists()) {
+  //   console.log(professorDocSnap.data());
+  // } else {
+  //   console.log("no such document");
+  // }
+
+  // 获取该教授的所有课程信息
+  const classes = [];
+  const q = query(
+    collection(db, "classes"),
+    where("professorId", "==", professorId)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    let classInfo = doc.data();
+    classInfo.classId = doc.id;
+    classes.push(classInfo);
+  });
+
+  return classes;
 }
 
 export default function Overview() {
-  const data = useLoaderData();
-  console.log(data);
+  const classes = useLoaderData();
+  console.log(classes);
+  const classElements = classes.map(class => {
+    return <Class courseName={class.courseName} section={class.section} studentIds={class.studentIds} />
+  })
   return (
     <div className="h-full overflow-auto">
-      <Semester />
-      <Semester />
-      <Semester />
+      <div className="flex flex-col items-center">
+        <p className="my-1.5 text-xl">2022 Fall</p>
+        <div className="w-11/12 border border-gray"></div>
+        <div className="w-11/12 py-5">{classElements}</div>
+      </div>
     </div>
   );
 }
