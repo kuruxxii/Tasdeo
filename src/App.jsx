@@ -17,13 +17,13 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Overview, { loader as overviewLoader } from "./pages/Overview";
 import ClassDetail, { loader as classDetailLoader } from "./pages/ClassDetail";
+import RemarkForm, { loader as remarkFormLoader } from "./pages/RemarkForm";
 import Interview from "./pages/Interview";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
-// components
 
 function App() {
   const router = createBrowserRouter(
@@ -35,6 +35,11 @@ function App() {
           path="overview/:classid"
           element={<ClassDetail />}
           loader={classDetailLoader}
+        />
+        <Route
+          path="overview/:classid/:studentid/remarkform"
+          element={<RemarkForm />}
+          loader={remarkFormLoader}
         />
         <Route path="interview" element={<Interview />} />
         <Route path="about" element={<About />} />
