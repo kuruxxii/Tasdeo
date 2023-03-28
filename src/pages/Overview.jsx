@@ -47,15 +47,15 @@ export async function loader() {
 export default function Overview() {
   const classes = useLoaderData();
   console.log(classes);
-  const classElements = classes.map(class => {
-    return <Class key={class.classId} courseName={class.courseName} section={class.section} studentIds={class.studentIds} />
-  })
+  // const classElements = classes.map(class => {
+  //   return <Class key={class.classId} courseName={class.courseName} section={class.section} studentIds={class.studentIds} />
+  // })
   return (
     <div className="h-full overflow-auto">
       <div className="flex flex-col items-center">
         <p className="my-1.5 text-xl">2022 Fall</p>
         <div className="w-11/12 border border-gray"></div>
-        <div className="w-11/12 py-5">{classElements}</div>
+        {/* <div className="w-11/12 py-5">{classElements}</div> */}
       </div>
     </div>
   );
