@@ -1,5 +1,5 @@
 import React from "react";
-import Student from "../components/Student";
+import StudentCard from "../components/StudentCard";
 import { useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { requireAuth } from "../util";
@@ -23,33 +23,49 @@ export async function loader() {
 
   // 获取该教授的所有课程信息
   const classes = [];
-  const q = query(
+  const clsq = query(
     collection(db, "classes"),
     where("professorId", "==", professorId)
   );
-  const querySnapshot = await getDocs(q);
+  const querySnapshot = await getDocs(clsq);
   querySnapshot.forEach((doc) => {
     let classInfo = doc.data();
     classInfo.classId = doc.id;
     classes.push(classInfo);
   });
 
-  return classes;
+  // 获取所有学生信息
+  const students = [];
+  const studentsSnapshot = await getDocs(collection(db, "students"));
+  studentsSnapshot.forEach((doc) => {
+    students.push(doc.data());
+  });
+
+  return { classes, students };
 }
 
 export default function ClassDetail() {
   let { classid } = useParams();
-  const thisClass = useLoaderData().filter((cls) => cls.classId === classid)[0];
-  console.log(thisClass);
-  const studentIds = thisClass.studentIds;
-  console.log(studentIds);
+  const { classes, students } = useLoaderData();
+  const thisClass = classes.filter((cls) => cls.classId === classid)[0];
+  const studentsOfThisClass = [];
+  for (const studentId of thisClass.studentIds) {
+    for (const student of students) {
+      if (student.studentId === studentId) {
+        studentsOfThisClass.push(student);
+      }
+    }
+  }
 
-  return (
-    <div className="h-full overflow-auto">
-      {`this is classdetail ${classid}`}
-      {/* <StudentList />
-      <StudentList />
-      <StudentList /> */}
-    </div>
-  );
+  const studentCardElements = studentsOfThisClass.map((std) => {
+    return (
+      <StudentCard
+        key={std.studentId}
+        name={std.name}
+        studentId={std.studentId}
+      />
+    );
+  });
+
+  return <div className="h-full overflow-auto">{studentCardElements}</div>;
 }
