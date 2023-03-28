@@ -2,6 +2,8 @@ import React from "react";
 import { requireAuth } from "../util";
 import { Form, redirect, useParams } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
 export async function loader() {
   await requireAuth();
@@ -18,6 +20,14 @@ export async function action({ request }) {
   const user = auth.currentUser;
   // 获取教授信息
   const professorId = user.uid;
+
+  const docRef = await addDoc(collection(db, "remarks"), {
+    studentId,
+    professorId,
+    type,
+    content,
+  });
+  // console.log("Document written with ID: ", docRef.id);
 
   // return redirect("/");
   return null;
