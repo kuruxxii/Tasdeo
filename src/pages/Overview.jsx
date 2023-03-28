@@ -1,5 +1,4 @@
 import React from "react";
-import Semester from "../oldComponents/Semester";
 import { useLoaderData } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
@@ -46,8 +45,6 @@ export async function loader() {
 
 export default function Overview() {
   const classes = useLoaderData();
-  console.log(classes);
-  console.log(typeof classes);
   const classElements = classes.map((cls) => {
     return (
       <Class
