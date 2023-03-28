@@ -2,7 +2,7 @@ import React from "react";
 import { requireAuth } from "../util";
 import { Form, redirect, useParams } from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 export async function loader() {
@@ -27,6 +27,7 @@ export async function action({ request }) {
     professorId,
     type,
     content,
+    timestamp: serverTimestamp(),
   });
   // console.log("Document written with ID: ", docRef.id);
 
