@@ -1,5 +1,5 @@
 import React from "react";
-import Class from "./Class";
+import Class from "../components/Class";
 
 export default function ClassTime() {
   return (
