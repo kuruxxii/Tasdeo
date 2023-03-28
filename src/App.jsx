@@ -16,7 +16,7 @@ import Layout from "./layouts/Layout";
 // pages
 import Home from "./pages/Home";
 import Overview, { loader as overviewLoader } from "./pages/Overview";
-import ClassDetail from "./pages/ClassDetail";
+import ClassDetail, { loader as classDetailLoader } from "./pages/ClassDetail";
 import Interview from "./pages/Interview";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
@@ -31,7 +31,11 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="overview" element={<Overview />} loader={overviewLoader} />
-        <Route path="overview/:classid" element={<ClassDetail />} />
+        <Route
+          path="overview/:classid"
+          element={<ClassDetail />}
+          loader={classDetailLoader}
+        />
         <Route path="interview" element={<Interview />} />
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
