@@ -17,7 +17,10 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Overview, { loader as overviewLoader } from "./pages/Overview";
 import ClassDetail, { loader as classDetailLoader } from "./pages/ClassDetail";
-import RemarkForm, { loader as remarkFormLoader } from "./pages/RemarkForm";
+import RemarkForm, {
+  loader as remarkFormLoader,
+  action as remarkFormAction,
+} from "./pages/RemarkForm";
 import Interview from "./pages/Interview";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
@@ -40,6 +43,7 @@ function App() {
           path="overview/:classid/:studentid/remarkform"
           element={<RemarkForm />}
           loader={remarkFormLoader}
+          action={remarkFormAction}
         />
         <Route path="interview" element={<Interview />} />
         <Route path="about" element={<About />} />
