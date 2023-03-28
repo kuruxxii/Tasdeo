@@ -6,7 +6,9 @@ export default function StudentCard({ studentId, name }) {
     <div className="w-32 h-32 border ">
       <p className="text-bright text-2xl">{name}</p>
       <p>{studentId}</p>
-      <Link to={`${studentId}/remarkform`}>leave a remark</Link>
+      <Link to={`${studentId}/remarkform`} state={{ studentId, name }}>
+        leave a remark
+      </Link>
     </div>
   );
 }
