@@ -55,6 +55,7 @@ export default function Overview() {
         courseName={cls.courseName}
         section={cls.section}
         studentIds={cls.studentIds}
+        id={cls.classId}
       />
     );
   });
