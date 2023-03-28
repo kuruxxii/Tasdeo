@@ -15,6 +15,7 @@ export async function action({ request }) {
   const type = formData.get("type");
   const content = formData.get("content");
   const studentId = formData.get("studentId");
+  const classId = formData.get("classId");
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -29,15 +30,16 @@ export async function action({ request }) {
   });
   // console.log("Document written with ID: ", docRef.id);
 
-  // return redirect("/");
-  return null;
+  return redirect(`/overview/${classId}`);
 }
 
 export default function RemarkForm() {
+  let classId = useParams().classid;
   let studentId = useParams().studentid;
   return (
     <div className="h-full flex justify-center items-center">
       <Form replace method="post" className="flex flex-col space-y-3">
+        <input type="hidden" name="classId" value={classId} />
         <input type="hidden" name="studentId" value={studentId} />
         <div>
           <input

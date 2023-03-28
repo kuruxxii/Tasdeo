@@ -17,6 +17,9 @@ import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Overview, { loader as overviewLoader } from "./pages/Overview";
 import ClassDetail, { loader as classDetailLoader } from "./pages/ClassDetail";
+import RemarkRecords, {
+  loader as remarkRecordsLoader,
+} from "./pages/RemarkRecords";
 import RemarkForm, {
   loader as remarkFormLoader,
   action as remarkFormAction,
@@ -38,6 +41,10 @@ function App() {
           path="overview/:classid"
           element={<ClassDetail />}
           loader={classDetailLoader}
+        />
+        <Route
+          path="overview/:classid/:studentid/remarkrecords"
+          element={<RemarkRecords />}
         />
         <Route
           path="overview/:classid/:studentid/remarkform"
