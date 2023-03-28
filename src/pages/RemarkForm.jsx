@@ -1,6 +1,6 @@
 import React from "react";
 import { requireAuth } from "../util";
-import { useLoaderData, Form, redirect, useParams } from "react-router-dom";
+import { Form, redirect, useParams } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
 export async function loader() {
@@ -10,12 +10,9 @@ export async function loader() {
 
 export async function action({ request }) {
   const formData = await request.formData();
-  formData.append("studentId", stdId);
-  console.log(formData.values());
   const type = formData.get("type");
   const content = formData.get("content");
-  // const studentId = formData.get("studentId");
-  // console.log(studentId);
+  const studentId = formData.get("studentId");
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -27,9 +24,11 @@ export async function action({ request }) {
 }
 
 export default function RemarkForm() {
+  let studentId = useParams().studentid;
   return (
     <div className="h-full flex justify-center items-center">
       <Form replace method="post" className="flex flex-col space-y-3">
+        <input type="hidden" name="studentId" value={studentId} />
         <div>
           <input
             required
