@@ -2,14 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
-import {
-  doc,
-  getDoc,
-  getDocs,
-  collection,
-  query,
-  where,
-} from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../config/firebase";
 import Class from "../components/Class";
 
@@ -19,13 +12,6 @@ export async function loader() {
   const user = auth.currentUser;
   // 获取教授信息
   const professorId = user.uid;
-  // const professorDocRef = doc(db, "professors", professorId);
-  // const professorDocSnap = await getDoc(professorDocRef);
-  // if (professorDocSnap.exists()) {
-  //   console.log(professorDocSnap.data());
-  // } else {
-  //   console.log("no such document");
-  // }
 
   // 获取该教授的所有课程信息
   const classes = [];

@@ -12,11 +12,19 @@ export async function loader() {
   allRemarksSnapshot.forEach((doc) => {
     allRemarks.push(doc.data());
   });
-  return allRemarks;
+  const allProfessors = [];
+  const professorsSnapshot = await getDocs(collection(db, "professors"));
+  professorsSnapshot.forEach((doc) => {
+    let professorInfo = {};
+    professorInfo.professorId = doc.id;
+    professorInfo.professorName = doc.data().name;
+    allProfessors.push(professorInfo);
+  });
+  return { allRemarks, allProfessors };
 }
 
 export default function RemarkRecords() {
-  const allRemarks = useLoaderData();
+  const { allRemarks, allProfessors } = useLoaderData();
   const studentId = useParams().studentid;
   const remarksOfThisStudent = allRemarks.filter(
     (remark) => remark.studentId === studentId
@@ -24,6 +32,17 @@ export default function RemarkRecords() {
   remarksOfThisStudent.sort(
     (a, b) => b.timestamp.seconds - a.timestamp.seconds
   );
+  const elements = remarksOfThisStudent.map((remark) => (
+    <RemarkRecord
+      key={remark.timestamp.seconds}
+      time={remark.timestamp.seconds}
+      professorName={
+        allProfessors.filter((pf) => pf.professorId === remark.professorId)[0]
+          .professorName
+      }
+      content={remark.content}
+    />
+  ));
   return (
     <div className="w-full h-full overflow-auto relative">
       <p className="font-extrabold text-3xl w-1/2 text-center mx-auto my-6">
@@ -33,8 +52,7 @@ export default function RemarkRecords() {
         <span className="text-2xl">Leave a Remark</span>
       </Link>
       <ol className="relative border-l border-bright w-3/5 mx-auto">
-        <RemarkRecord />
-        <RemarkRecord />
+        {elements}
       </ol>
     </div>
   );
