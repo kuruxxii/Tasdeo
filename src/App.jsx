@@ -45,6 +45,7 @@ function App() {
         <Route
           path="overview/:classid/:studentid/remarkrecords"
           element={<RemarkRecords />}
+          loader={remarkRecordsLoader}
         />
         <Route
           path="overview/:classid/:studentid/remarkform"
