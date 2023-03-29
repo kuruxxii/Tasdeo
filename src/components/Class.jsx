@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Class({ id, courseName, section, studentIds }) {
+export default function Class({
+  id,
+  year,
+  semester,
+  courseName,
+  section,
+  studentIds,
+}) {
   return (
-    <div className="bg-nav h-44 rounded-xl px-6 py-6 mb-4 relative flex flex-col justify-around items-left">
+    <div className="border h-44 rounded-xl px-6 py-6 mb-4 relative flex flex-col justify-around items-left">
       <p className="text-4xl">{courseName}</p>
+      <p className="text-2xl">{year}</p>
+      <p className="text-2xl">{semester}</p>
       <p className="text-2xl">{section}</p>
       <p className="text-lg">{studentIds.length} enrolled</p>
       <Link
