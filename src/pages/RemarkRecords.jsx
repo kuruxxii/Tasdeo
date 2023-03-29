@@ -99,6 +99,7 @@ export default function RemarkRecords() {
   ));
   return (
     <div className="w-full h-full overflow-auto relative">
+      <Link to={`/overview/${classId}`}>《= go back</Link>
       <p className="font-extrabold text-3xl w-1/2 text-center mx-auto my-6">
         History Remarks
       </p>
