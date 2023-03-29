@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { GoPerson } from "react-icons/go";
 
 export default function Header() {
   const activeStyles = {
@@ -28,8 +29,7 @@ export default function Header() {
           ABOUT
         </NavLink>
         <Link to="sign-in">
-          {/* <img src="../assets/images/avatar-icon.png" className="login-icon" /> */}
-          log-in ICON
+          <GoPerson />
         </Link>
       </nav>
     </header>
