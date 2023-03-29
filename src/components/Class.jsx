@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { GoArrowRight } from "react-icons/go";
 
 export default function Class({
   id,
@@ -19,7 +20,7 @@ export default function Class({
       <Link
         to={id}
         className="bg-bright absolute bottom-4 right-4 px-4 py-4 rounded-md">
-        Go to class =》
+        Go to class <GoArrowRight />
       </Link>
     </div>
   );

@@ -4,6 +4,7 @@ import { Link, Form, redirect, useParams } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { GoArrowLeft } from "react-icons/go";
 
 export async function loader() {
   await requireAuth();
@@ -38,7 +39,9 @@ export default function RemarkForm() {
   let studentId = useParams().studentid;
   return (
     <div className="h-full flex justify-center items-center">
-      <Link to={`/overview/${classId}`}>《= go back</Link>
+      <Link to={`/overview/${classId}`}>
+        <GoArrowLeft /> go back
+      </Link>
       <Form replace method="post" className="flex flex-col space-y-3">
         <input type="hidden" name="classId" value={classId} />
         <input type="hidden" name="studentId" value={studentId} />
