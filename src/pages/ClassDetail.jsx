@@ -67,5 +67,11 @@ export default function ClassDetail() {
     );
   });
 
-  return <div className="h-full overflow-auto">{studentCardElements}</div>;
+  return (
+    <div className="h-full overflow-auto flex justify-center p-5">
+      <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
+        {studentCardElements}
+      </div>
+    </div>
+  );
 }
