@@ -29,9 +29,8 @@ export async function action({ request }) {
     content,
     timestamp: serverTimestamp(),
   });
-  // console.log("Document written with ID: ", docRef.id);
 
-  return redirect(`/overview/${classId}`);
+  return redirect(`/overview/${classId}/${studentId}/remarkrecords`);
 }
 
 export default function RemarkForm() {

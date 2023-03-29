@@ -76,6 +76,7 @@ export default function RemarkRecords() {
   }
 
   const { allRemarks, allProfessors } = useLoaderData();
+  const classId = useParams().classid;
   const studentId = useParams().studentid;
   const remarksOfThisStudent = allRemarks.filter(
     (remark) => remark.studentId === studentId
@@ -101,7 +102,9 @@ export default function RemarkRecords() {
       <p className="font-extrabold text-3xl w-1/2 text-center mx-auto my-6">
         History Remarks
       </p>
-      <Link className="flex items-center fixed bottom-16 right-12">
+      <Link
+        to={`/overview/${classId}/${studentId}/remarkform`}
+        className="flex items-center fixed bottom-16 right-12">
         <span className="text-2xl">Leave a Remark</span>
       </Link>
       <ol className="relative border-l border-bright w-3/5 mx-auto">
