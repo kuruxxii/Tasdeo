@@ -94,6 +94,7 @@ export default function RemarkRecords() {
         allProfessors.filter((pf) => pf.professorId === remark.professorId)[0]
           .professorName
       }
+      type={remark.type}
       content={remark.content}
     />
   ));
