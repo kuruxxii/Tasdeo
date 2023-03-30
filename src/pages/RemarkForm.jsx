@@ -1,14 +1,32 @@
 import React from "react";
 import { requireAuth } from "../util";
-import { Link, Form, redirect, useParams } from "react-router-dom";
+import {
+  Link,
+  Form,
+  redirect,
+  useParams,
+  useLoaderData,
+} from "react-router-dom";
 import { getAuth } from "firebase/auth";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../config/firebase";
 import { GoArrowLeft } from "react-icons/go";
 
 export async function loader() {
   await requireAuth();
-  return null;
+  const allRemarks = [];
+  const allRemarksSnapshot = await getDocs(collection(db, "remarks"));
+  allRemarksSnapshot.forEach((doc) => {
+    allRemarks.push(doc.data());
+  });
+  return allRemarks;
 }
 
 export async function action({ request }) {
@@ -17,13 +35,28 @@ export async function action({ request }) {
   const content = formData.get("content");
   const studentId = formData.get("studentId");
   const classId = formData.get("classId");
+  const tag = formData.get("tag");
 
   const auth = getAuth();
   const user = auth.currentUser;
   // 获取教授信息
   const professorId = user.uid;
 
-  const docRef = await addDoc(collection(db, "remarks"), {
+  // 给学生添加tag
+  const querySnapshot = await getDocs(collection(db, "students"));
+  let studentDocId;
+  querySnapshot.forEach((doc) => {
+    if (doc.data().studentId == studentId) {
+      studentDocId = doc.id;
+    }
+  });
+  const studentRef = doc(db, "students", studentDocId);
+  await updateDoc(studentRef, {
+    tag,
+  });
+
+  // 添加remark
+  const remarkDocRef = await addDoc(collection(db, "remarks"), {
     studentId,
     professorId,
     type,
@@ -37,6 +70,21 @@ export async function action({ request }) {
 export default function RemarkForm() {
   let classId = useParams().classid;
   let studentId = useParams().studentid;
+  const allRemarks = useLoaderData();
+  const remarksOfThisStudent = allRemarks.filter(
+    (remark) => remark.studentId === studentId
+  );
+  const negativeRemarks = remarksOfThisStudent.filter(
+    (remark) => remark.type === "negative"
+  );
+  let tag = "";
+  if (negativeRemarks.length * 2 > remarksOfThisStudent.length) {
+    tag = "bad";
+  } else if (negativeRemarks.length / remarksOfThisStudent.length <= 0.1) {
+    tag = "good";
+  } else {
+    tag = "average";
+  }
   return (
     <div className="h-full flex justify-center items-center">
       <Link to={`/overview/${classId}`}>
@@ -45,6 +93,7 @@ export default function RemarkForm() {
       <Form replace method="post" className="flex flex-col space-y-3">
         <input type="hidden" name="classId" value={classId} />
         <input type="hidden" name="studentId" value={studentId} />
+        <input type="hidden" name="tag" value={tag} />
         <div>
           <input
             required
