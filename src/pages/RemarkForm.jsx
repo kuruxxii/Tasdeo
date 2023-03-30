@@ -6,6 +6,7 @@ import {
   redirect,
   useParams,
   useLoaderData,
+  useLocation,
 } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import {
@@ -68,6 +69,8 @@ export async function action({ request }) {
 }
 
 export default function RemarkForm() {
+  const location = useLocation();
+  const search = location.state?.search || "";
   let classId = useParams().classid;
   let studentId = useParams().studentid;
   const allRemarks = useLoaderData();
@@ -87,7 +90,7 @@ export default function RemarkForm() {
   }
   return (
     <div className="h-full flex justify-center items-center">
-      <Link to={`/overview/${classId}`}>
+      <Link to={`/overview/${classId}?${search}`}>
         <GoArrowLeft /> go back
       </Link>
       <Form replace method="post" className="flex flex-col space-y-3">
