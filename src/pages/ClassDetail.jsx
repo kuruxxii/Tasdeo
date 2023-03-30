@@ -1,7 +1,11 @@
 import React from "react";
 import StudentCard from "../components/StudentCard";
-import { useLoaderData } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import {
+  useParams,
+  useLoaderData,
+  useSearchParams,
+  Link,
+} from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
 import { getDocs, collection, query, where } from "firebase/firestore";
@@ -50,7 +54,14 @@ export default function ClassDetail() {
     }
   }
 
-  const studentCardElements = studentsOfThisClass.map((std) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tagFilter = searchParams.get("tag");
+  console.log(tagFilter);
+
+  const displayed = tagFilter
+    ? studentsOfThisClass.filter((std) => std.tag === tagFilter)
+    : studentsOfThisClass;
+  const studentCardElements = displayed.map((std) => {
     return (
       <StudentCard
         key={std.studentId}
@@ -62,7 +73,13 @@ export default function ClassDetail() {
   });
 
   return (
-    <div className="h-full overflow-auto flex justify-center p-5">
+    <div className="h-full overflow-auto p-5">
+      <div className="space-x-3">
+        <Link to="?tag=good">GOOD</Link>
+        <Link to="?tag=bad">BAD</Link>
+        <Link to="?tag=average">AVERAGE</Link>
+        <Link to=".">clear</Link>
+      </div>
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
       </div>
