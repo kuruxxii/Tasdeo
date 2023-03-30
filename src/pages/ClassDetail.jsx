@@ -75,10 +75,16 @@ export default function ClassDetail() {
   return (
     <div className="h-full overflow-auto p-5">
       <div className="space-x-3">
-        <Link to="?tag=good">GOOD</Link>
+        {/* <Link to="?tag=good">GOOD</Link>
         <Link to="?tag=bad">BAD</Link>
         <Link to="?tag=average">AVERAGE</Link>
-        <Link to=".">clear</Link>
+        <Link to=".">clear</Link> */}
+        <button onClick={() => setSearchParams({ tag: "good" })}>GOOD</button>
+        <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
+        <button onClick={() => setSearchParams({ tag: "average" })}>
+          AVERAGE
+        </button>
+        <button onClick={() => setSearchParams({})}>clear</button>
       </div>
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
