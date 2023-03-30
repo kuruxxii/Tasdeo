@@ -1,11 +1,6 @@
 import React from "react";
 import StudentCard from "../components/StudentCard";
-import {
-  useParams,
-  useLoaderData,
-  useSearchParams,
-  Link,
-} from "react-router-dom";
+import { useParams, useLoaderData, useSearchParams } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
 import { getDocs, collection, query, where } from "firebase/firestore";
