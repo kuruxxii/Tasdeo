@@ -56,7 +56,6 @@ export default function ClassDetail() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const tagFilter = searchParams.get("tag");
-  console.log(tagFilter);
 
   const displayed = tagFilter
     ? studentsOfThisClass.filter((std) => std.tag === tagFilter)
