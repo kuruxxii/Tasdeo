@@ -4,14 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
-import {
-  doc,
-  getDoc,
-  getDocs,
-  collection,
-  query,
-  where,
-} from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 export async function loader() {
