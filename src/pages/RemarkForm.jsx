@@ -78,7 +78,7 @@ export default function RemarkForm() {
     (remark) => remark.type === "negative"
   );
   let tag = "";
-  if (negativeRemarks.length * 2 > remarksOfThisStudent.length) {
+  if (negativeRemarks.length * 2 >= remarksOfThisStudent.length) {
     tag = "bad";
   } else if (negativeRemarks.length / remarksOfThisStudent.length <= 0.1) {
     tag = "good";
