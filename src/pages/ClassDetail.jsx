@@ -56,6 +56,7 @@ export default function ClassDetail() {
         key={std.studentId}
         name={std.name}
         studentId={std.studentId}
+        tag={std.tag}
       />
     );
   });
