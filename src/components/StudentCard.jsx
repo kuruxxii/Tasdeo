@@ -8,6 +8,7 @@ export default function StudentCard({ studentId, name }) {
       <Link to={`${studentId}/remarkrecords`}>
         <p className="text-bright text-2xl">{name}</p>
         <p>{studentId}</p>
+        <p>tag: status</p>
       </Link>
       <Link
         to={`${studentId}/remarkform`}
