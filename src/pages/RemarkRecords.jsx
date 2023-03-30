@@ -1,6 +1,6 @@
 import React from "react";
 import RemarkRecord from "../components/RemarkRecord";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams, useLocation } from "react-router-dom";
 import { requireAuth } from "../util";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
@@ -75,6 +75,9 @@ export default function RemarkRecords() {
     return word;
   }
 
+  const location = useLocation();
+  const search = location.state?.search || "";
+
   const { allRemarks, allProfessors } = useLoaderData();
   const classId = useParams().classid;
   const studentId = useParams().studentid;
@@ -100,7 +103,7 @@ export default function RemarkRecords() {
   ));
   return (
     <div className="w-full h-full overflow-auto relative">
-      <Link to={`/overview/${classId}`}>《= go back</Link>
+      <Link to={`/overview/${classId}?${search}`}>《= go back</Link>
       <p className="font-extrabold text-3xl w-1/2 text-center mx-auto my-6">
         History Remarks
       </p>
