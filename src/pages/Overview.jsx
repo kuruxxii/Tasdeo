@@ -31,6 +31,7 @@ export async function loader() {
 
 export default function Overview() {
   const classes = useLoaderData();
+  classes.sort((a, b) => b.ordercode - a.ordercode);
   const classElements = classes.map((cls) => {
     return (
       <Class
