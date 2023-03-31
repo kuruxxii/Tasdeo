@@ -63,6 +63,26 @@ export default function ClassDetail() {
   const displayed = tagFilter
     ? studentsOfThisClass.filter((std) => std.tag === tagFilter)
     : studentsOfThisClass;
+
+  const csvData = [];
+  for (const std of displayed) {
+    const data = {};
+    data.name = std.name;
+    data.studentId = std.studentId;
+    data.tag = std.tag;
+    const remarksOfThisStudent = allRemarks.filter(
+      (remark) => remark.studentId == std.studentId
+    );
+    data.numberOfRemarks = remarksOfThisStudent.length;
+    data.positiveRemarkRate = `${(
+      (remarksOfThisStudent.filter((remark) => remark.type === "positive")
+        .length /
+        remarksOfThisStudent.length) *
+      100
+    ).toFixed(2)}%`;
+    csvData.unshift(data);
+  }
+
   const studentCardElements = displayed.map((std) => {
     const remarksOfThisStudent = allRemarks.filter(
       (remark) => remark.studentId == std.studentId
@@ -97,7 +117,7 @@ export default function ClassDetail() {
         {studentCardElements}
       </div>
       <button className="w-80 h-16 border rounded-lg">
-        <CSVLink data={displayed}>
+        <CSVLink data={csvData}>
           {tagFilter
             ? `Download CSV with tag filter: ${tagFilter}`
             : "Download CSV"}
