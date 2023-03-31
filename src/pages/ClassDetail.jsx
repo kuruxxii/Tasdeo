@@ -5,6 +5,7 @@ import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { CSVLink } from "react-csv";
 
 export async function loader() {
   await requireAuth();
@@ -79,6 +80,9 @@ export default function ClassDetail() {
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
       </div>
+      <button className="w-40 h-16 border rounded-lg">
+        <CSVLink data={studentsOfThisClass}>Download CSV</CSVLink>
+      </button>
     </div>
   );
 }
