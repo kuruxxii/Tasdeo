@@ -77,13 +77,13 @@ export default function RemarkForm() {
   const remarksOfThisStudent = allRemarks.filter(
     (remark) => remark.studentId === studentId
   );
-  const negativeRemarks = remarksOfThisStudent.filter(
-    (remark) => remark.type === "negative"
-  );
+  const positveRate =
+    remarksOfThisStudent.filter((remark) => remark.type === "positive").length /
+    remarksOfThisStudent.length;
   let tag = "";
-  if (negativeRemarks.length * 2 >= remarksOfThisStudent.length) {
+  if (positveRate <= 0.1) {
     tag = "bad";
-  } else if (negativeRemarks.length / remarksOfThisStudent.length <= 0.1) {
+  } else if (positveRate >= 0.85) {
     tag = "good";
   } else {
     tag = "average";
