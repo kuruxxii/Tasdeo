@@ -70,19 +70,23 @@ export default function ClassDetail() {
   return (
     <div className="h-full overflow-auto p-5">
       <div className="space-x-3 flex">
-        <p>Filters: </p>
+        <p>Tag Filters: </p>
         <button onClick={() => setSearchParams({ tag: "good" })}>GOOD</button>
         <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
         <button onClick={() => setSearchParams({ tag: "average" })}>
           AVERAGE
         </button>
-        <button onClick={() => setSearchParams({})}>Clear Filter</button>
+        <button onClick={() => setSearchParams({})}>Clear Tag Filter</button>
       </div>
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
       </div>
-      <button className="w-40 h-16 border rounded-lg">
-        <CSVLink data={studentsOfThisClass}>Download CSV</CSVLink>
+      <button className="w-80 h-16 border rounded-lg">
+        <CSVLink data={displayed}>
+          {tagFilter
+            ? `Download CSV with tag filter: ${tagFilter.toUpperCase()}`
+            : "Download CSV"}
+        </CSVLink>
       </button>
     </div>
   );
