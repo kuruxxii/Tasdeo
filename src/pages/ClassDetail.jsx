@@ -34,12 +34,19 @@ export async function loader() {
     students.push(doc.data());
   });
 
-  return { classes, students };
+  // 获取remarks（用于导出）
+  const allRemarks = [];
+  const allRemarksSnapshot = await getDocs(collection(db, "remarks"));
+  allRemarksSnapshot.forEach((doc) => {
+    allRemarks.push(doc.data());
+  });
+
+  return { classes, students, allRemarks };
 }
 
 export default function ClassDetail() {
   let { classid } = useParams();
-  const { classes, students } = useLoaderData();
+  const { classes, students, allRemarks } = useLoaderData();
   const thisClass = classes.filter((cls) => cls.classId === classid)[0];
   const studentsOfThisClass = [];
   for (const studentId of thisClass.studentIds) {
@@ -57,12 +64,20 @@ export default function ClassDetail() {
     ? studentsOfThisClass.filter((std) => std.tag === tagFilter)
     : studentsOfThisClass;
   const studentCardElements = displayed.map((std) => {
+    const remarksOfThisStudent = allRemarks.filter(
+      (remark) => remark.studentId == std.studentId
+    );
     return (
       <StudentCard
         key={std.studentId}
         name={std.name}
         studentId={std.studentId}
         tag={std.tag}
+        numOfRemarks={remarksOfThisStudent.length}
+        positiveRate={
+          remarksOfThisStudent.filter((remark) => remark.type === "positive")
+            .length / remarksOfThisStudent.length
+        }
       />
     );
   });
@@ -84,7 +99,7 @@ export default function ClassDetail() {
       <button className="w-80 h-16 border rounded-lg">
         <CSVLink data={displayed}>
           {tagFilter
-            ? `Download CSV with tag filter: ${tagFilter.toUpperCase()}`
+            ? `Download CSV with tag filter: ${tagFilter}`
             : "Download CSV"}
         </CSVLink>
       </button>
