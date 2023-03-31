@@ -69,13 +69,14 @@ export default function ClassDetail() {
 
   return (
     <div className="h-full overflow-auto p-5">
-      <div className="space-x-3">
+      <div className="space-x-3 flex">
+        <p>Filters: </p>
         <button onClick={() => setSearchParams({ tag: "good" })}>GOOD</button>
         <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
         <button onClick={() => setSearchParams({ tag: "average" })}>
           AVERAGE
         </button>
-        <button onClick={() => setSearchParams({})}>clear</button>
+        <button onClick={() => setSearchParams({})}>Clear Filter</button>
       </div>
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
