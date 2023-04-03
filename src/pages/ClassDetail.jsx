@@ -117,7 +117,13 @@ export default function ClassDetail() {
         {studentCardElements}
       </div>
       <button className="w-80 h-16 border rounded-lg">
-        <CSVLink data={csvData}>
+        <CSVLink
+          data={csvData}
+          filename={
+            tagFilter
+              ? `${thisClass.courseName} (${tagFilter}).csv`
+              : `${thisClass.courseName}.csv`
+          }>
           {tagFilter
             ? `Download CSV with tag filter: ${tagFilter}`
             : "Download CSV"}

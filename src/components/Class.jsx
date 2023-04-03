@@ -15,7 +15,7 @@ export default function Class({
       <p className="text-4xl">{courseName}</p>
       <p className="text-2xl">{year}</p>
       <p className="text-2xl">{semester}</p>
-      <p className="text-2xl">Section: {section.toUpperCase()}</p>
+      <p className="text-2xl">section: {section}</p>
       <p className="text-lg">{studentIds.length} enrolled</p>
       <Link
         to={id}
