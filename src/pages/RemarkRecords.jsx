@@ -4,6 +4,7 @@ import { Link, useLoaderData, useParams, useLocation } from "react-router-dom";
 import { requireAuth } from "../util";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { CSVLink } from "react-csv";
 
 export async function loader() {
   await requireAuth();
@@ -101,6 +102,19 @@ export default function RemarkRecords() {
       content={remark.content}
     />
   ));
+  const remarkData = [];
+  for (const remark of remarksOfThisStudent) {
+    const r = {};
+    r.time = `${toMonthWord(
+      toDateTime(remark.timestamp.seconds).getMonth()
+    )} ${toDateTime(remark.timestamp.seconds).getDate()}`;
+    r.professorName = allProfessors.filter(
+      (pf) => pf.professorId === remark.professorId
+    )[0].professorName;
+    r.type = remark.type;
+    r.content = remark.content;
+    remarkData.push(r);
+  }
   return (
     <div className="w-full h-full overflow-auto relative">
       <Link to={`/overview/${classId}?${search}`}>《= go back</Link>
@@ -112,6 +126,9 @@ export default function RemarkRecords() {
         className="flex items-center fixed bottom-16 right-12">
         <span className="text-2xl">Leave a Remark</span>
       </Link>
+      <button className="w-60 h-16 border rounded-lg">
+        <CSVLink data={remarkData}>Download CSV</CSVLink>
+      </button>
       <ol className="relative border-l border-bright w-3/5 mx-auto">
         {elements}
       </ol>
