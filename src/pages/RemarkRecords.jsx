@@ -127,7 +127,9 @@ export default function RemarkRecords() {
         <span className="text-2xl">Leave a Remark</span>
       </Link>
       <button className="w-60 h-16 border rounded-lg">
-        <CSVLink data={remarkData}>Download CSV</CSVLink>
+        <CSVLink data={remarkData} filename={`${studentId}.csv`}>
+          Download CSV
+        </CSVLink>
       </button>
       <ol className="relative border-l border-bright w-3/5 mx-auto">
         {elements}
