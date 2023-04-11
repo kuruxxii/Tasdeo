@@ -3,8 +3,10 @@ import Papa from "papaparse";
 import { db } from "../config/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useLoaderData } from "react-router-dom";
+import { requireAuth } from "../util";
 
 export async function loader() {
+  await requireAuth();
   // 获取所有学生信息
   const students = [];
   const studentsSnapshot = await getDocs(collection(db, "students"));
@@ -66,9 +68,7 @@ export default function SetUp() {
   return (
     <div>
       <div>
-        <label htmlFor="students">
-          Import or Update Student List(.csv only):
-        </label>
+        <label htmlFor="students">Import or Add Student List(.csv only):</label>
         <input
           type="file"
           id="students"

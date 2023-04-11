@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentCard from "../components/StudentCard";
 import { useParams, useLoaderData, useSearchParams } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
-import { getDocs, collection, query, where } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  query,
+  where,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../config/firebase";
 import { CSVLink } from "react-csv";
+import Papa from "papaparse";
 
 export async function loader() {
   await requireAuth();
@@ -102,8 +110,66 @@ export default function ClassDetail() {
     );
   });
 
+  const [jsonData, setJsonData] = useState(null);
+
+  const studentIds = [];
+  for (const std of studentsOfThisClass) {
+    studentIds.unshift(std.studentId);
+  }
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+
+    Papa.parse(file, {
+      header: true,
+      complete: (results) => {
+        const jsonData = JSON.stringify(results.data);
+        setJsonData(jsonData);
+      },
+    });
+  };
+
+  const confirmAddition = async (event) => {
+    if (jsonData) {
+      const duplicatedStudentIds = [];
+      const invalidStudentIds = [];
+
+      const allStudentIds = [];
+      for (const std of students) {
+        allStudentIds.unshift(std.studentId);
+      }
+
+      for (const std of JSON.parse(jsonData)) {
+        if (studentIds.includes(Number(std.studentId))) {
+          duplicatedStudentIds.push(Number(std.studentId));
+        }
+        if (!allStudentIds.includes(Number(std.studentId))) {
+          invalidStudentIds.unshift(Number(std.studentId));
+        }
+      }
+
+      if (duplicatedStudentIds.length === 0 && invalidStudentIds.length === 0) {
+        const prevStudentIds = thisClass.studentIds;
+        for (const std of JSON.parse(jsonData)) {
+          prevStudentIds.unshift(Number(std.studentId));
+        }
+        const stdListRef = doc(db, "classes", thisClass.classId);
+        await updateDoc(stdListRef, {
+          studentIds: prevStudentIds,
+        });
+      } else if (duplicatedStudentIds.length !== 0) {
+        alert(`Duplicated StudentIds: ${duplicatedStudentIds}`);
+      } else {
+        alert(`Invalid StudentIds: ${invalidStudentIds}`);
+      }
+    } else {
+      alert("no file input received");
+    }
+  };
+
   return (
     <div className="h-full overflow-auto p-5">
+      <p className="text-lg font-bold">{thisClass.courseName}</p>
       <div className="space-x-3 flex">
         <p>Tag Filters: </p>
         <button onClick={() => setSearchParams({ tag: "good" })}>GOOD</button>
@@ -116,7 +182,7 @@ export default function ClassDetail() {
       <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
         {studentCardElements}
       </div>
-      <button className="w-80 h-16 border rounded-lg">
+      <button className="w-80 h-16 border rounded-lg mt-4">
         <CSVLink
           data={csvData}
           filename={
@@ -129,6 +195,17 @@ export default function ClassDetail() {
             : "Download CSV"}
         </CSVLink>
       </button>
+      <div className="mt-4">
+        <label htmlFor="register">
+          Add Students for This Class(.csv only):
+        </label>
+        <input
+          type="file"
+          id="register"
+          accept=".csv"
+          onChange={handleFileUpload}></input>
+        <button onClick={confirmAddition}>Confirm</button>
+      </div>
     </div>
   );
 }
