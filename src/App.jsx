@@ -24,7 +24,7 @@ import RemarkForm, {
   loader as remarkFormLoader,
   action as remarkFormAction,
 } from "./pages/RemarkForm";
-import Interview from "./pages/Interview";
+import ImportCSV from "./pages/ImportCSV";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -53,7 +53,7 @@ function App() {
           loader={remarkFormLoader}
           action={remarkFormAction}
         />
-        <Route path="interview" element={<Interview />} />
+        <Route path="importcsv" element={<ImportCSV />} />
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
