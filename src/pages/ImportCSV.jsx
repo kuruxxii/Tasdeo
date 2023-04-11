@@ -1,9 +1,28 @@
 import React, { useState } from "react";
 import Papa from "papaparse";
 import { db } from "../config/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  // 获取所有学生信息
+  const students = [];
+  const studentsSnapshot = await getDocs(collection(db, "students"));
+  studentsSnapshot.forEach((doc) => {
+    students.push(doc.data());
+  });
+  return students;
+}
 
 export default function ImportCSV() {
+  const students = useLoaderData();
+  // console.log(students);
+  const studentIds = [];
+  for (const std of students) {
+    studentIds.unshift(std.studentId);
+  }
+  // console.log(studentIds);
+
   const [jsonData, setJsonData] = useState(null);
 
   const handleFileUpload = (event) => {
@@ -20,18 +39,29 @@ export default function ImportCSV() {
 
   const handleStudentsSubmit = async (event) => {
     if (jsonData) {
-      console.log(jsonData);
+      // console.log(jsonData);
+      const duplicatedStudentIds = [];
       for (const std of JSON.parse(jsonData)) {
-        console.log(std);
-        try {
-          const docRef = await addDoc(collection(db, "students"), {
-            name: std.name,
-            studentId: std.studentId,
-          });
-          console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-          console.error("Error adding document: ", e);
+        if (studentIds.includes(Number(std.studentId))) {
+          duplicatedStudentIds.push(Number(std.studentId));
         }
+      }
+      if (duplicatedStudentIds.length === 0) {
+        for (const std of JSON.parse(jsonData)) {
+          // console.log(std);
+          try {
+            const docRef = await addDoc(collection(db, "students"), {
+              name: std.name,
+              studentId: Number(std.studentId),
+            });
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+        }
+      } else {
+        // alert(`Duplicated Student Ids`);
+        console.log(`duplicatedStudentIds: ${duplicatedStudentIds}`);
       }
     } else {
       alert("no file input received");
