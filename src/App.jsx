@@ -24,7 +24,7 @@ import RemarkForm, {
   loader as remarkFormLoader,
   action as remarkFormAction,
 } from "./pages/RemarkForm";
-import ImportCSV, { loader as importCSVLoader } from "./pages/ImportCSV";
+import SetUp, { loader as setUpLoader } from "./pages/SetUp";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -53,11 +53,7 @@ function App() {
           loader={remarkFormLoader}
           action={remarkFormAction}
         />
-        <Route
-          path="importcsv"
-          element={<ImportCSV />}
-          loader={importCSVLoader}
-        />
+        <Route path="setup" element={<SetUp />} loader={setUpLoader} />
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />

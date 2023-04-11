@@ -14,7 +14,7 @@ export async function loader() {
   return students;
 }
 
-export default function ImportCSV() {
+export default function SetUp() {
   const students = useLoaderData();
   const studentIds = [];
   for (const std of students) {
@@ -45,7 +45,6 @@ export default function ImportCSV() {
       }
       if (duplicatedStudentIds.length === 0) {
         for (const std of JSON.parse(jsonData)) {
-          // console.log(std);
           try {
             const docRef = await addDoc(collection(db, "students"), {
               name: std.name,
@@ -57,8 +56,7 @@ export default function ImportCSV() {
           }
         }
       } else {
-        // alert(`Duplicated Student Ids`);
-        console.log(`duplicatedStudentIds: ${duplicatedStudentIds}`);
+        alert(`Duplicated StudentIds: ${duplicatedStudentIds}`);
       }
     } else {
       alert("no file input received");

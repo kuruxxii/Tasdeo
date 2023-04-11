@@ -22,9 +22,9 @@ export default function Header() {
           OVERVIEW
         </NavLink>
         <NavLink
-          to="importcsv"
+          to="setup"
           style={({ isActive }) => (isActive ? activeStyles : null)}>
-          IMPORT
+          SETUP
         </NavLink>
         <NavLink
           to="about"
