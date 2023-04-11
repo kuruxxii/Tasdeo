@@ -16,12 +16,10 @@ export async function loader() {
 
 export default function ImportCSV() {
   const students = useLoaderData();
-  // console.log(students);
   const studentIds = [];
   for (const std of students) {
     studentIds.unshift(std.studentId);
   }
-  // console.log(studentIds);
 
   const [jsonData, setJsonData] = useState(null);
 
@@ -39,7 +37,6 @@ export default function ImportCSV() {
 
   const handleStudentsSubmit = async (event) => {
     if (jsonData) {
-      // console.log(jsonData);
       const duplicatedStudentIds = [];
       for (const std of JSON.parse(jsonData)) {
         if (studentIds.includes(Number(std.studentId))) {
@@ -81,10 +78,6 @@ export default function ImportCSV() {
           accept=".csv"
           onChange={handleFileUpload}></input>
         <button onClick={handleStudentsSubmit}>Confirm</button>
-      </div>
-      <br />
-      <div>
-        <button>Import or Update Course</button>
       </div>
     </div>
   );
