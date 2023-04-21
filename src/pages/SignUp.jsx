@@ -57,7 +57,9 @@ export default function SignUp() {
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
       await setDoc(doc(db, "professors", user.uid), formDataCopy);
-
+      const idToken = await user.getIdToken();
+      localStorage.setItem("authToken", idToken);
+      localStorage.setItem("uid", user.uid);
       toast.success("Success!");
       navigate("/overview");
     } catch (error) {

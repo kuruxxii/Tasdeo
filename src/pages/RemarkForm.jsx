@@ -38,10 +38,10 @@ export async function action({ request }) {
   const classId = formData.get("classId");
   const tag = formData.get("tag");
 
-  const auth = getAuth();
-  const user = auth.currentUser;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
   // 获取教授信息
-  const professorId = user.uid;
+  const professorId = localStorage.getItem("uid");
 
   // 给学生添加tag
   const querySnapshot = await getDocs(collection(db, "students"));
