@@ -14,6 +14,7 @@ import {
 import { db } from "../config/firebase";
 import { CSVLink } from "react-csv";
 import Papa from "papaparse";
+import { toast } from "react-toastify";
 
 export async function loader() {
   await requireAuth();
@@ -130,6 +131,7 @@ export default function ClassDetail() {
   };
 
   const confirmAddition = async (event) => {
+    event.currentTarget.disabled = true;
     if (jsonData) {
       const duplicatedStudentIds = [];
       const invalidStudentIds = [];
@@ -157,6 +159,8 @@ export default function ClassDetail() {
         await updateDoc(stdListRef, {
           studentIds: prevStudentIds,
         });
+        toast.success("Students Added!");
+        // window.location.reload();
       } else if (duplicatedStudentIds.length !== 0) {
         alert(`Duplicated StudentIds: ${duplicatedStudentIds}`);
       } else {
@@ -165,6 +169,7 @@ export default function ClassDetail() {
     } else {
       alert("no file input received");
     }
+    setTimeout(() => (event.currentTarget.disabled = false), 5000);
   };
 
   return (
@@ -204,7 +209,9 @@ export default function ClassDetail() {
           id="register"
           accept=".csv"
           onChange={handleFileUpload}></input>
-        <button onClick={confirmAddition}>Confirm</button>
+        <button onClick={confirmAddition} className="border p-4 bg-white">
+          Confirm
+        </button>
       </div>
     </div>
   );
