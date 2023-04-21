@@ -139,7 +139,7 @@ export default function SetUp() {
               name: std.name,
               studentId: Number(std.studentId),
             });
-            console.log("Document written with ID: ", docRef.id);
+            toast.success("Student List Uploaded!");
           } catch (e) {
             console.error("Error adding document: ", e);
           }
@@ -155,7 +155,7 @@ export default function SetUp() {
   return (
     <div>
       <div>
-        <label htmlFor="students">Import or Add Student List(.csv only):</label>
+        <label htmlFor="students">Upload Student List(.csv only):</label>
         <input
           type="file"
           id="students"
