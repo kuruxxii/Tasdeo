@@ -42,7 +42,7 @@ export async function action({ request }) {
 
   const formData = await request.formData();
   const courseName = formData.get("courseName");
-  const year = formData.get("year");
+  const year = Number(formData.get("year"));
   const semester = formData.get("semester");
   const section = formData.get("section");
 
@@ -83,7 +83,9 @@ export async function action({ request }) {
         break;
     }
 
-    const orderCode = Number(classCount.toString() + sectionCode.toString());
+    const orderCode = Number(
+      year.toString() + classCount.toString() + sectionCode.toString()
+    );
     const docRef = await addDoc(collection(db, "classes"), {
       courseName,
       orderCode,
