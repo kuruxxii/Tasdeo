@@ -9,10 +9,10 @@ import { toast } from "react-toastify";
 
 export async function loader() {
   await requireAuth();
-  const auth = getAuth();
-  const user = auth.currentUser;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
   // 获取教授信息
-  const professorId = user.uid;
+  const professorId = localStorage.getItem("uid");
   // 获取所有学生信息
   const students = [];
   const studentsSnapshot = await getDocs(collection(db, "students"));

@@ -8,10 +8,10 @@ import Class from "../components/Class";
 
 export async function loader() {
   await requireAuth();
-  const auth = getAuth();
-  const user = auth.currentUser;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
   // 获取教授信息
-  const professorId = user.uid;
+  const professorId = localStorage.getItem("uid");
 
   // 获取该教授的所有课程信息
   const classes = [];

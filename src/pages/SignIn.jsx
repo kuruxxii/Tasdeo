@@ -36,6 +36,9 @@ export default function SignIn() {
       );
       const user = userCredential.user;
       if (user) {
+        const idToken = await user.getIdToken();
+        localStorage.setItem("authToken", idToken);
+        localStorage.setItem("uid", user.uid);
         toast.success("Success!");
         navigate("/overview");
       }
