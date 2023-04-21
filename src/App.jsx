@@ -24,7 +24,10 @@ import RemarkForm, {
   loader as remarkFormLoader,
   action as remarkFormAction,
 } from "./pages/RemarkForm";
-import SetUp, { loader as setUpLoader } from "./pages/SetUp";
+import SetUp, {
+  loader as setUpLoader,
+  action as setUpAction,
+} from "./pages/SetUp";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -53,7 +56,12 @@ function App() {
           loader={remarkFormLoader}
           action={remarkFormAction}
         />
-        <Route path="setup" element={<SetUp />} loader={setUpLoader} />
+        <Route
+          path="setup"
+          element={<SetUp />}
+          loader={setUpLoader}
+          action={setUpAction}
+        />
         <Route path="about" element={<About />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
