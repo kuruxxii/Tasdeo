@@ -5,6 +5,7 @@ import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { useLoaderData, Form, redirect } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 
 export async function loader() {
   await requireAuth();
@@ -52,7 +53,8 @@ export async function action({ request }) {
   if (
     classes.filter(
       (cls) =>
-        cls.year === Number(year) &&
+        cls.courseName === courseName &&
+        cls.year === year &&
         cls.semester === semester &&
         cls.section === section
     ).length === 1
@@ -95,6 +97,7 @@ export async function action({ request }) {
       year,
       studentIds: [],
     });
+    toast.success("Class Added!");
   }
 
   return null;
