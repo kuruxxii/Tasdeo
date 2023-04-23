@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="h-full overflow-auto">
-      <h1>MOriewof in vicetorss.</h1>
-      <p>
-        MOriewof in vicetorss MOriewof in vicetorss MOriewof in vicetorss
-        MOriewof in vicetorss MOriewof in vicetorss
-      </p>
-      {/* <Link to="vans">Find your van</Link> */}
+    <div className="h-full border-4">
+      <h1>Home Page</h1>
+      <p>some words...</p>
+      <button>
+        <Link to="sign-in">Explore</Link>
+      </button>
     </div>
   );
 }

@@ -46,10 +46,9 @@ export default function Overview() {
     );
   });
   return (
-    <div className="h-full overflow-auto">
+    <div className="overflow-auto">
       <div className="flex flex-col items-center">
-        <div className="w-3/4 border border-gray"></div>
-        <div className="w-3/4 py-5">{classElements}</div>
+        <div className="w-11/12 py-4">{classElements}</div>
       </div>
     </div>
   );
