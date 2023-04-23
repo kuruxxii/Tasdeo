@@ -11,9 +11,10 @@ export default function Header() {
   };
 
   return (
-    <header className="h-28 flex justify-around items-center">
+    <header className="h-12 flex justify-around items-center text-sm bg-white text-gray-400">
       <Link to="/">
-        <img src={logoUrl} alt="Tasdeo Logo" className="object-cover w-48" />
+        {/* <img src={logoUrl} alt="Tasdeo Logo" className="object-cover w-48" /> */}
+        <span>LOGO(TBD)</span>
       </Link>
       <nav className="flex justify-between items-center space-x-4">
         <NavLink
