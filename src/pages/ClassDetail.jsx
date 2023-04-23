@@ -173,46 +173,59 @@ export default function ClassDetail() {
   };
 
   return (
-    <div className="h-full overflow-auto p-5">
-      <p className="text-lg font-bold">{thisClass.courseName}</p>
-      <div className="space-x-3 flex">
-        <p>Tag Filters: </p>
-        <button onClick={() => setSearchParams({ tag: "good" })}>GOOD</button>
-        <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
-        <button onClick={() => setSearchParams({ tag: "average" })}>
-          AVERAGE
-        </button>
-        <button onClick={() => setSearchParams({})}>Clear Tag Filter</button>
+    <div className="bg-white h-screen mt-4 rounded overflow-auto w-11/12 mx-auto py-4 flex flex-col">
+      <p className="text-lg font-bold text-center">{thisClass.courseName}</p>
+      <div className="my-2 px-2 flex flex-col space-y-6">
+        <div className="flex flex-col space-y-2">
+          <label htmlFor="register" className="text-sm self-start">
+            Add Students for This Class (.csv only):
+          </label>
+          <input
+            type="file"
+            id="register"
+            accept=".csv"
+            className="text-sm file:mr-4 file:py-2 file:px-4
+          file:rounded-full file:border-0
+          file:text-sm file:font-semibold
+          file:bg-violet-50 file:text-violet-600
+          hover:file:bg-violet-100"
+            onChange={handleFileUpload}></input>
+          <button
+            onClick={confirmAddition}
+            className="bg-amber-400 text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full">
+            Confirm
+          </button>
+        </div>
+        <div className="flex flex-col space-y-2">
+          <div className="text-sm space-x-3 flex">
+            <p className="text-sm">Tag Filters: </p>
+            <button onClick={() => setSearchParams({ tag: "good" })}>
+              GOOD
+            </button>
+            <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
+            <button onClick={() => setSearchParams({ tag: "average" })}>
+              AVERAGE
+            </button>
+            <button onClick={() => setSearchParams({})}>
+              Clear Tag Filter
+            </button>
+          </div>
+          <button className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full">
+            <CSVLink
+              data={csvData}
+              filename={
+                tagFilter
+                  ? `${thisClass.courseName} (${tagFilter}).csv`
+                  : `${thisClass.courseName}.csv`
+              }>
+              {tagFilter
+                ? `Download CSV with tag filter: ${tagFilter}`
+                : "Download CSV"}
+            </CSVLink>
+          </button>
+        </div>
       </div>
-      <div className="p-5 border border-gray w-11/12 grid grid-cols-4 justify-items-center content-start">
-        {studentCardElements}
-      </div>
-      <button className="w-80 h-16 border rounded-lg mt-4">
-        <CSVLink
-          data={csvData}
-          filename={
-            tagFilter
-              ? `${thisClass.courseName} (${tagFilter}).csv`
-              : `${thisClass.courseName}.csv`
-          }>
-          {tagFilter
-            ? `Download CSV with tag filter: ${tagFilter}`
-            : "Download CSV"}
-        </CSVLink>
-      </button>
-      <div className="mt-4">
-        <label htmlFor="register">
-          Add Students for This Class(.csv only):
-        </label>
-        <input
-          type="file"
-          id="register"
-          accept=".csv"
-          onChange={handleFileUpload}></input>
-        <button onClick={confirmAddition} className="border p-4 bg-white">
-          Confirm
-        </button>
-      </div>
+      <div className="text-sm px-2">{studentCardElements}</div>
     </div>
   );
 }
