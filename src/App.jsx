@@ -33,11 +33,12 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
+import Error from "./pages/Error";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout />} errorElement={<Error />}>
         <Route index element={<Home />} />
         <Route path="overview" element={<Overview />} loader={overviewLoader} />
         <Route
