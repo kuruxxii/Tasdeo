@@ -179,7 +179,7 @@ export default function ClassDetail() {
       </p>
       <div className="mt-2 mb-4 px-2 flex flex-col space-y-8">
         <div className="flex flex-col space-y-4">
-          <label htmlFor="register" className="text-sm self-start">
+          <label htmlFor="register" className="text-base self-start">
             Add Students for This Class (.csv only):
           </label>
           <input
@@ -199,7 +199,7 @@ export default function ClassDetail() {
           </button>
         </div>
         <div className="flex flex-col space-y-4">
-          <p className="text-sm">Tag Filters: </p>
+          <p className="text-base">Tag Filters: </p>
           <div className="text-sm flex space-x-4">
             <button
               className="bg-slate-400 text-white px-4 py-2 rounded-full"
