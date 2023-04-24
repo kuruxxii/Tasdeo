@@ -153,19 +153,32 @@ export default function SetUp() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="mt-4 h-screen flex flex-col items-center space-y-6">
+      <p className="w-11/12 mx-auto text-center">
+        !! Please upload student list to database before adding students to
+        classes.
+      </p>
+      <div className="w-11/12 mx-auto flex flex-col justify-between items-start space-y-2 bg-white h-40 rounded-xl px-6 py-6 mb-4">
         <label htmlFor="students">Upload Student List(.csv only):</label>
         <input
           type="file"
           id="students"
+          className="text-sm file:mr-4 file:py-2 file:px-4
+          file:rounded-full file:border-0
+          file:text-sm file:font-semibold
+          file:bg-violet-50 file:text-violet-600
+          hover:file:bg-violet-100"
           name="students"
           accept=".csv"
           onChange={handleFileUpload}></input>
-        <button onClick={handleStudentsSubmit}>Confirm</button>
+        <button
+          className="bg-amber-400 text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full self-center"
+          onClick={handleStudentsSubmit}>
+          Confirm
+        </button>
       </div>
-      <div>
-        <Form replace method="post" className="w-64 flex flex-col space-y-3">
+      <div className="w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl px-6 py-6 mb-4">
+        <Form replace method="post" className="w-64 flex flex-col space-y-4">
           <input
             type="hidden"
             name="classesjson"
@@ -174,7 +187,13 @@ export default function SetUp() {
           <label htmlFor="courseName" maxLength="40">
             Course Name
           </label>
-          <input type="text" id="courseName" name="courseName" required />
+          <input
+            type="text"
+            id="courseName"
+            name="courseName"
+            required
+            className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
+          />
           <label htmlFor="year">Year</label>
           <input
             type="number"
@@ -184,6 +203,7 @@ export default function SetUp() {
             min={`${new Date().getFullYear()}`}
             max="2099"
             placeholder={`${new Date().getFullYear()}`}
+            className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
             required
           />
           <label htmlFor="semester-select">Choose semester:</label>
@@ -206,7 +226,11 @@ export default function SetUp() {
             <option value="virtual">none</option>
           </select>
 
-          <button type="submit">Add Class</button>
+          <button
+            type="submit"
+            className="bg-amber-400 bg-bright px-4 py-2 rounded-full">
+            Add Class
+          </button>
         </Form>
       </div>
     </div>

@@ -6,8 +6,9 @@ import logoUrl from "../images/logo.png";
 export default function Header() {
   const activeStyles = {
     fontWeight: "bold",
-    textDecoration: "underline",
     color: "#FF8C38",
+    borderBottomWidth: "2px",
+    borderColor: "#FF8C38",
   };
 
   return (
