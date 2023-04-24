@@ -122,7 +122,7 @@ export default function RemarkForm() {
           placeholder=" please be kind and friendly..."
           rows="5"
           cols="33"
-          maxLength={70}></textarea>
+          maxLength={100}></textarea>
         <button type="submit">confirm</button>
       </Form>
     </div>
