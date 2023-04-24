@@ -116,22 +116,24 @@ export default function RemarkRecords() {
     remarkData.push(r);
   }
   return (
-    <div className="w-full h-full overflow-auto relative">
-      <Link to={`/overview/${classId}?${search}`}>《= go back</Link>
-      <p className="font-extrabold text-3xl w-1/2 text-center mx-auto my-6">
+    <div className="w-full h-screen overflow-auto relative">
+      <div className="mt-4">
+        <button className="text-sm bg-slate-400 bg-bright px-4 py-2 rounded-full fixed right-4 bottom-1/3">
+          <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
+        </button>
+        <button className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full ml-4">
+          <CSVLink data={remarkData} filename={`${studentId}.csv`}>
+            Download CSV
+          </CSVLink>
+        </button>
+      </div>
+      <p className="font-extrabold text-3xl text-center mx-auto my-6">
         History Remarks
       </p>
-      <Link
-        to={`/overview/${classId}/${studentId}/remarkform`}
-        className="flex items-center fixed bottom-16 right-12">
-        <span className="text-2xl">Leave a Remark</span>
-      </Link>
-      <button className="w-60 h-16 border rounded-lg">
-        <CSVLink data={remarkData} filename={`${studentId}.csv`}>
-          Download CSV
-        </CSVLink>
+      <button className="bg-amber-400 bg-bright px-4 py-2 rounded-full text-xl flex items-center fixed bottom-16 right-4">
+        <Link to={`/overview/${classId}/${studentId}/remarkform`}>Remark</Link>
       </button>
-      <ol className="relative border-l border-bright w-3/5 mx-auto">
+      <ol className="relative border-l border-amber-400 w-3/5 mx-auto">
         {elements}
       </ol>
     </div>

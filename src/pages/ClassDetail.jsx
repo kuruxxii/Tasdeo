@@ -174,9 +174,11 @@ export default function ClassDetail() {
 
   return (
     <div className="bg-white h-screen mt-4 rounded overflow-auto w-11/12 mx-auto py-4 flex flex-col">
-      <p className="text-lg font-bold text-center">{thisClass.courseName}</p>
-      <div className="my-2 px-2 flex flex-col space-y-6">
-        <div className="flex flex-col space-y-2">
+      <p className="text-lg font-bold text-center mb-4">
+        {thisClass.courseName}
+      </p>
+      <div className="mt-2 mb-4 px-2 flex flex-col space-y-8">
+        <div className="flex flex-col space-y-4">
           <label htmlFor="register" className="text-sm self-start">
             Add Students for This Class (.csv only):
           </label>
@@ -196,19 +198,25 @@ export default function ClassDetail() {
             Confirm
           </button>
         </div>
-        <div className="flex flex-col space-y-2">
-          <div className="text-sm space-x-3 flex">
-            <p className="text-sm">Tag Filters: </p>
-            <button onClick={() => setSearchParams({ tag: "good" })}>
+        <div className="flex flex-col space-y-4">
+          <p className="text-sm">Tag Filters: </p>
+          <div className="text-sm flex space-x-4">
+            <button
+              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              onClick={() => setSearchParams({ tag: "good" })}>
               GOOD
             </button>
-            <button onClick={() => setSearchParams({ tag: "bad" })}>BAD</button>
-            <button onClick={() => setSearchParams({ tag: "average" })}>
+            <button
+              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              onClick={() => setSearchParams({ tag: "bad" })}>
+              BAD
+            </button>
+            <button
+              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              onClick={() => setSearchParams({ tag: "average" })}>
               AVERAGE
             </button>
-            <button onClick={() => setSearchParams({})}>
-              Clear Tag Filter
-            </button>
+            <button onClick={() => setSearchParams({})}>Reset</button>
           </div>
           <button className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full">
             <CSVLink
