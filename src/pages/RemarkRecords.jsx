@@ -130,7 +130,7 @@ export default function RemarkRecords() {
       <p className="font-extrabold text-3xl text-center mx-auto my-6">
         History Remarks
       </p>
-      <button className="bg-amber-400 bg-bright px-4 py-2 rounded-full text-xl flex items-center fixed bottom-16 right-4">
+      <button className="bg-amber-400 px-4 py-2 rounded-full text-xl flex items-center fixed bottom-24 right-4">
         <Link to={`/overview/${classId}/${studentId}/remarkform`}>Remark</Link>
       </button>
       <ol className="relative border-l border-amber-400 w-3/5 mx-auto">
