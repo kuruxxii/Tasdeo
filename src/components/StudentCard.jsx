@@ -16,15 +16,18 @@ export default function StudentCard({
         state={{ search: searchParams.toString() }}>
         <p className="text-lg font-bold">{name}</p>
         <p>{studentId}</p>
-        <p className="hidden lg:block">status: {tag}</p>
+        <p className="hidden lg:block">
+          {tag != null ? `status: ${tag}` : null}
+        </p>
         <p className="hidden lg:block">
           <span className="font-bold">{numOfRemarks}</span> History Remark(s)
         </p>
         <p className="hidden lg:block">
-          <span className="font-bold mr-2">{`${(positiveRate * 100).toFixed(
-            2
-          )}%`}</span>
-          Positive Remark Rate
+          <span className="font-bold mr-2">
+            {!isNaN(positiveRate)
+              ? `${(positiveRate * 100).toFixed(2)}% Positive Remark Rate`
+              : null}
+          </span>
         </p>
       </Link>
       <Link
