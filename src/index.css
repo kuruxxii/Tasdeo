@@ -3,8 +3,8 @@
 
 html,
 body {
-  background-color: #fff7ed;
-  font-family: "Inter", sans-serif;
+  background-color: #edc4a0;
+  font-family: "Lato", sans-serif;
 }
 
 @tailwind utilities;
