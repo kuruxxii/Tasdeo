@@ -98,11 +98,11 @@ export default function RemarkForm() {
       <p className="mt-4 mb-4 w-11/12 mx-auto text-center">
         !! Your remark has great significance to the student.
       </p>
-      <div className="w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl px-6 py-6 mb-4">
+      <div className="shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl pt-4 pb-6 mb-4">
         <Form
           replace
           method="post"
-          className="flex flex-col items-left space-y-3">
+          className="flex flex-col items-left space-y-4 w-11/12">
           <input type="hidden" name="classId" value={classId} />
           <input type="hidden" name="studentId" value={studentId} />
           <input type="hidden" name="tag" value={tag} />
@@ -135,7 +135,7 @@ export default function RemarkForm() {
             maxLength={100}></textarea>
           <button
             type="submit"
-            className="self-center text-sm w-28 bg-amber-400 bg-bright px-4 py-2 rounded-full">
+            className="self-center text-sm w-28 bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
             CONFIRM
           </button>
         </Form>

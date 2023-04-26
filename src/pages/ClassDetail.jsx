@@ -173,11 +173,11 @@ export default function ClassDetail() {
   };
 
   return (
-    <div className="bg-white h-screen mt-4 rounded overflow-auto w-11/12 mx-auto py-4 flex flex-col">
+    <div className="shadow-lg bg-white h-screen mt-4 rounded-xl overflow-auto w-11/12 mx-auto py-4 flex flex-col">
       <p className="text-lg font-bold text-center mb-4">
         {thisClass.courseName}
       </p>
-      <div className="mt-2 mb-4 px-2 flex flex-col space-y-8">
+      <div className="mt-2 mb-4 px-4 flex flex-col space-y-8">
         <div className="flex flex-col space-y-4">
           <label htmlFor="register" className="text-base self-start">
             Add Students for This Class (.csv only):
@@ -194,7 +194,7 @@ export default function ClassDetail() {
             onChange={handleFileUpload}></input>
           <button
             onClick={confirmAddition}
-            className="bg-amber-400 text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full">
+            className="bg-[#d7bb5b] text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full">
             Confirm
           </button>
         </div>
@@ -218,7 +218,7 @@ export default function ClassDetail() {
             </button>
             <button onClick={() => setSearchParams({})}>Reset</button>
           </div>
-          <button className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full">
+          <button className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
             <CSVLink
               data={csvData}
               filename={
@@ -233,7 +233,7 @@ export default function ClassDetail() {
           </button>
         </div>
       </div>
-      <div className="text-sm px-2">{studentCardElements}</div>
+      <div className="text-sm px-4">{studentCardElements}</div>
     </div>
   );
 }

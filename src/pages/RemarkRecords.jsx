@@ -121,7 +121,7 @@ export default function RemarkRecords() {
         <button className="text-sm bg-slate-400 bg-bright px-4 py-2 rounded-full fixed right-4 bottom-1/3">
           <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
         </button>
-        <button className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full ml-4">
+        <button className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full ml-4">
           <CSVLink data={remarkData} filename={`${studentId}.csv`}>
             Download CSV
           </CSVLink>
@@ -130,10 +130,10 @@ export default function RemarkRecords() {
       <p className="font-extrabold text-3xl text-center mx-auto my-6">
         History Remarks
       </p>
-      <button className="bg-amber-400 px-4 py-2 rounded-full text-xl flex items-center fixed bottom-24 right-4">
+      <button className="bg-[#d7bb5b] px-4 py-2 rounded-full text-xl flex items-center fixed bottom-24 right-4">
         <Link to={`/overview/${classId}/${studentId}/remarkform`}>Remark</Link>
       </button>
-      <ol className="relative border-l border-amber-400 w-3/5 mx-auto">
+      <ol className="relative border-l border-[#d7bb5b] w-3/5 mx-auto">
         {elements}
       </ol>
     </div>

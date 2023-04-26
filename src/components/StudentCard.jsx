@@ -30,7 +30,7 @@ export default function StudentCard({
       <Link
         to={`${studentId}/remarkform`}
         state={{ search: searchParams.toString() }}
-        className="text-sm bg-amber-400 bg-bright px-4 py-2 rounded-full">
+        className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
         leave a remark
       </Link>
     </div>
