@@ -6,13 +6,13 @@ import logoUrl from "../images/logo.png";
 export default function Header() {
   const activeStyles = {
     fontWeight: "bold",
-    color: "#FF8C38",
+    color: "#fbbf24",
     borderBottomWidth: "2px",
-    borderColor: "#FF8C38",
+    borderColor: "#fbbf24",
   };
 
   return (
-    <header className="h-12 flex justify-around items-center text-sm bg-white text-gray-400">
+    <header className="h-12 flex justify-around items-center text-sm bg-[#7b7137] text-[#e1dbcc]">
       <Link to="/">
         {/* <img src={logoUrl} alt="Tasdeo Logo" className="object-cover w-48" /> */}
         <span>LOGO(TBD)</span>
