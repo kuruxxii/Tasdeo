@@ -36,10 +36,9 @@ export async function loader() {
 }
 
 export async function action({ request }) {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  // 获取教授信息
-  const professorId = user.uid;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
+  const professorId = localStorage.getItem("uid");
 
   const formData = await request.formData();
   const courseName = formData.get("courseName");
@@ -223,7 +222,7 @@ export default function SetUp() {
             <option value="b">B</option>
             <option value="c">C</option>
             <option value="d">D</option>
-            <option value="virtual">none</option>
+            <option value="none">none</option>
           </select>
 
           <button
