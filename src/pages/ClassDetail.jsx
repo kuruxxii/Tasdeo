@@ -15,6 +15,11 @@ import { db } from "../config/firebase";
 import { CSVLink } from "react-csv";
 import Papa from "papaparse";
 import { toast } from "react-toastify";
+import { BiFilter } from "react-icons/bi";
+import { BiDownload } from "react-icons/bi";
+import { BiUpload } from "react-icons/bi";
+import { BiFile } from "react-icons/bi";
+import { BiGroup } from "react-icons/bi";
 
 export async function loader() {
   await requireAuth();
@@ -91,6 +96,8 @@ export default function ClassDetail() {
     ).toFixed(2)}%`;
     csvData.unshift(data);
   }
+
+  displayed.sort((a, b) => b.studentId - a.studentId);
 
   const studentCardElements = displayed.map((std) => {
     const remarksOfThisStudent = allRemarks.filter(
@@ -174,14 +181,17 @@ export default function ClassDetail() {
 
   return (
     <div className="shadow-lg bg-white h-screen mt-4 rounded-xl overflow-auto w-11/12 mx-auto py-4 flex flex-col">
-      <p className="text-lg font-bold text-center mb-4">
+      <p className="text-lg lg:text-2xl font-bold text-center mb-4">
         {thisClass.courseName}
       </p>
-      <div className="mt-2 mb-4 px-4 flex flex-col space-y-8">
+      <div className="text-sm lg:text-base mt-2 mb-4 px-4 flex flex-col space-y-8">
         <div className="flex flex-col space-y-4">
-          <label htmlFor="register" className="text-base self-start">
-            Add Students for This Class (.csv only):
-          </label>
+          <div className="flex items-center">
+            <BiFile className="mr-2" />
+            <label htmlFor="register" className="font-bold self-start">
+              Add Students for This Class (.csv only)
+            </label>
+          </div>
           <input
             type="file"
             id="register"
@@ -194,13 +204,17 @@ export default function ClassDetail() {
             onChange={handleFileUpload}></input>
           <button
             onClick={confirmAddition}
-            className="bg-[#d7bb5b] text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full">
-            Confirm
+            className="bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            <BiUpload className="mr-1" />
+            Upload
           </button>
         </div>
         <div className="flex flex-col space-y-4">
-          <p className="text-base">Tag Filters: </p>
-          <div className="text-sm flex space-x-4">
+          <div className="flex items-center">
+            <BiFilter />
+            <p className="ml-2 font-bold">Tag Filters</p>
+          </div>
+          <div className="flex space-x-4">
             <button
               className="bg-[#64759b] text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "good" })}>
@@ -218,7 +232,8 @@ export default function ClassDetail() {
             </button>
             <button onClick={() => setSearchParams({})}>Reset</button>
           </div>
-          <button className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
+          <button className="bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            <BiDownload />
             <CSVLink
               data={csvData}
               filename={
@@ -232,8 +247,16 @@ export default function ClassDetail() {
             </CSVLink>
           </button>
         </div>
+        <div className="flex flex-col space-y-4">
+          <div className="font-bold flex items-center ml-1">
+            <BiGroup className="mr-2" />
+            Students in This Class
+          </div>
+          <div className="text-sm px-1 w-full lg:grid lg:grid-cols-5">
+            {studentCardElements}
+          </div>
+        </div>
       </div>
-      <div className="text-sm px-4">{studentCardElements}</div>
     </div>
   );
 }

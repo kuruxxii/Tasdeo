@@ -18,7 +18,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
-import { GoArrowLeft } from "react-icons/go";
+import { BiCheckCircle } from "react-icons/bi";
 
 export async function loader() {
   await requireAuth();
@@ -98,7 +98,7 @@ export default function RemarkForm() {
       <p className="mt-4 mb-4 w-11/12 mx-auto text-center">
         !! Your remark has great significance to the student.
       </p>
-      <div className="shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl pt-4 pb-6 mb-4">
+      <div className="text-sm shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl pt-4 pb-6 mb-4">
         <Form
           replace
           method="post"
@@ -135,7 +135,8 @@ export default function RemarkForm() {
             maxLength={100}></textarea>
           <button
             type="submit"
-            className="self-center text-sm w-28 bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
+            className="self-center bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            <BiCheckCircle className="mr-1" />
             CONFIRM
           </button>
         </Form>

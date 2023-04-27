@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { BiPencil } from "react-icons/bi";
 
 export default function StudentCard({
   studentId,
@@ -10,10 +11,11 @@ export default function StudentCard({
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
   return (
-    <div className="my-4 flex justify-between items-center">
+    <div className="mb-4 lg:mb-8 flex justify-between items-center lg:flex-col lg:space-y-4 lg:items-center">
       <Link
         to={`${studentId}/remarkrecords`}
-        state={{ search: searchParams.toString() }}>
+        state={{ search: searchParams.toString() }}
+        className="flex flex-col space-y-2">
         <p className="text-lg font-bold">{name}</p>
         <p>{studentId}</p>
         <p className="hidden lg:block">
@@ -33,8 +35,9 @@ export default function StudentCard({
       <Link
         to={`${studentId}/remarkform`}
         state={{ search: searchParams.toString() }}
-        className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full">
-        leave a remark
+        className="text-sm bg-[#d7bb5b] px-4 py-2 rounded-full flex justify-center items-center">
+        <BiPencil className="mr-2" />
+        Leave a Remark
       </Link>
     </div>
   );
