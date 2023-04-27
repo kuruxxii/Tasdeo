@@ -105,7 +105,7 @@ export default function SignIn() {
           </div>
           <button
             type="submit"
-            className="mb-4 w-full px-7 py-3 text-sm font-medium uppercase rounded shadow-md bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+            className="mb-4 w-full px-7 py-3 text-sm font-medium uppercase rounded shadow-lg bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
             Sign in
           </button>
         </form>
