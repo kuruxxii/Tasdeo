@@ -36,7 +36,7 @@ export default function StudentCard({
         to={`${studentId}/remarkform`}
         state={{ search: searchParams.toString() }}
         className="text-sm bg-[#d7bb5b] px-4 py-2 rounded-full flex justify-center items-center">
-        <BiPencil className="mr-2" />
+        <BiPencil className="mr-1" />
         Leave a Remark
       </Link>
     </div>

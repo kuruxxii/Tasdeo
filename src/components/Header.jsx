@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { GoPerson } from "react-icons/go";
+import { BiUser } from "react-icons/bi";
 import logoUrl from "../images/logo.png";
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
           ABOUT
         </NavLink>
         <Link to="sign-in">
-          <GoPerson />
+          <BiUser />
         </Link>
       </nav>
     </header>

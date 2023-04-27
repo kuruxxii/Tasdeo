@@ -6,6 +6,10 @@ import { useLoaderData, Form, redirect } from "react-router-dom";
 import { requireAuth } from "../util";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+import { BiUpload } from "react-icons/bi";
+import { BiFile } from "react-icons/bi";
+import { BiHome } from "react-icons/bi";
+import { BiPlusCircle } from "react-icons/bi";
 
 export async function loader() {
   await requireAuth();
@@ -152,13 +156,18 @@ export default function SetUp() {
   };
 
   return (
-    <div className="mt-4 h-screen flex flex-col items-center space-y-6">
+    <div className="mt-4 h-screen flex flex-col items-center space-y-6 text-sm lg:text-base">
       <p className="w-11/12 mx-auto text-center">
         !! Please upload student list to database before adding students to
         classes.
       </p>
       <div className="shadow-lg w-11/12 mx-auto flex flex-col justify-between items-start space-y-2 bg-white h-40 rounded-xl px-6 py-6 mb-4">
-        <label htmlFor="students">Upload Student List(.csv only):</label>
+        <div className="flex items-center">
+          <BiFile className="mr-2" />
+          <label htmlFor="students" className="font-bold">
+            Upload Student List(.csv only)
+          </label>
+        </div>
         <input
           type="file"
           id="students"
@@ -171,12 +180,17 @@ export default function SetUp() {
           accept=".csv"
           onChange={handleFileUpload}></input>
         <button
-          className="bg-amber-400 text-sm h-8 flex justify-center items-center bg-bright px-4 py-2 rounded-full self-center"
+          className="bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2"
           onClick={handleStudentsSubmit}>
-          Confirm
+          <BiUpload className="mr-1" />
+          Upload
         </button>
       </div>
-      <div className="shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl py-6">
+      <div className="shadow-lg w-11/12 mx-auto flex flex-col justify-center items-center bg-white rounded-xl py-6 px-6">
+        <div className="flex items-center self-start mb-4">
+          <BiHome className="mr-2" />
+          <p className="font-bold">Add New Class Section</p>
+        </div>
         <Form replace method="post" className="w-64 flex flex-col space-y-4">
           <div className="flex flex-col space-y-2">
             <label htmlFor="courseName" maxLength="40">
@@ -231,7 +245,8 @@ export default function SetUp() {
           </div>
           <button
             type="submit"
-            className="bg-amber-400 bg-bright px-4 py-2 rounded-full mt-2">
+            className="bg-[#d7bb5b] px-4 py-2 rounded-full mt-2 flex justify-center items-center">
+            <BiPlusCircle className="mr-1" />
             Add Class
           </button>
         </Form>
