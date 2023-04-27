@@ -19,6 +19,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { BiCheckCircle } from "react-icons/bi";
+import { BiExit } from "react-icons/bi";
 
 export async function loader() {
   await requireAuth();
@@ -89,16 +90,15 @@ export default function RemarkForm() {
     tag = "average";
   }
   return (
-    <div className="w-full h-screen relative">
-      <Link
-        to={`/overview/${classId}?${search}`}
-        className="text-sm bg-slate-400 bg-bright px-4 py-2 rounded-full absolute right-4 bottom-1/3">
-        RETURN
-      </Link>
-      <p className="mt-4 mb-4 w-11/12 mx-auto text-center">
+    <div className="w-full h-screen relative text-sm lg:text-base">
+      <button className="bg-gray-300 hover:bg-gray-400 active:bg-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full fixed top-16 right-4 lg:right-16 flex justify-center items-center">
+        <BiExit className="mr-1" />
+        <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
+      </button>
+      <p className="mt-16 mb-4 w-11/12 mx-auto text-center">
         !! Your remark has great significance to the student.
       </p>
-      <div className="text-sm shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl pt-4 pb-6 mb-4">
+      <div className="shadow-lg w-11/12 mx-auto flex justify-center items-center bg-white rounded-xl pt-4 pb-6 mb-4">
         <Form
           replace
           method="post"
@@ -135,7 +135,7 @@ export default function RemarkForm() {
             maxLength={100}></textarea>
           <button
             type="submit"
-            className="self-center bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            className="self-center bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiCheckCircle className="mr-1" />
             CONFIRM
           </button>

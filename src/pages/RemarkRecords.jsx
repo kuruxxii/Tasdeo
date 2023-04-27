@@ -5,6 +5,9 @@ import { requireAuth } from "../util";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { CSVLink } from "react-csv";
+import { BiEditAlt } from "react-icons/bi";
+import { BiDownload } from "react-icons/bi";
+import { BiExit } from "react-icons/bi";
 
 export async function loader() {
   await requireAuth();
@@ -117,11 +120,13 @@ export default function RemarkRecords() {
   }
   return (
     <div className="w-full h-screen overflow-auto relative">
-      <div className="mt-4">
-        <button className="text-sm bg-[#64759b] px-4 py-2 rounded-full fixed right-4 bottom-1/3">
+      <div className="mt-4 text-sm lg:text-base">
+        <button className="bg-gray-300 hover:bg-gray-400 active:bg-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full fixed right-4 lg:right-16 flex justify-center items-center">
+          <BiExit className="mr-1" />
           <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
         </button>
-        <button className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full ml-4">
+        <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-6 py-2 rounded-full ml-4 flex justify-center items-center">
+          <BiDownload className="mr-1" />
           <CSVLink data={remarkData} filename={`${studentId}.csv`}>
             Download CSV
           </CSVLink>
@@ -130,7 +135,8 @@ export default function RemarkRecords() {
       <p className="font-extrabold text-3xl text-center mx-auto my-6">
         History Remarks
       </p>
-      <button className="bg-[#d7bb5b] px-4 py-2 rounded-full text-xl flex items-center fixed bottom-24 right-4">
+      <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-6 py-2 rounded-full flex justify-center items-center fixed bottom-24 right-4 lg:right-16">
+        <BiEditAlt className="mr-1" />
         <Link to={`/overview/${classId}/${studentId}/remarkform`}>Remark</Link>
       </button>
       <ol className="relative border-l border-[#d7bb5b] w-3/5 mx-auto">
