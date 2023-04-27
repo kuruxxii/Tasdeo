@@ -5,7 +5,7 @@ import homebg from "../images/homebg.jpg";
 export default function Home() {
   return (
     <div
-      className="h-screen bg-cover flex flex-col justify-center"
+      className="h-screen bg-cover flex flex-col justify-center items-center"
       style={{ backgroundImage: `url(${homebg})` }}>
       <div className="flex flex-col items-center space-y-16">
         <h1 className="text-xl lg:text-4xl text-white">
