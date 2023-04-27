@@ -183,7 +183,7 @@ export default function SetUp() {
           className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2"
           onClick={handleStudentsSubmit}>
           <BiUpload className="mr-1" />
-          Upload
+          UPLOAD
         </button>
       </div>
       <div className="shadow-lg w-11/12 mx-auto flex flex-col justify-center items-center bg-white rounded-xl py-6 px-6">
@@ -247,7 +247,7 @@ export default function SetUp() {
             type="submit"
             className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full mt-2 flex justify-center items-center">
             <BiPlusCircle className="mr-1" />
-            Add Class
+            ADD CLASS
           </button>
         </Form>
       </div>
