@@ -119,7 +119,7 @@ export default function SignUp() {
               Already have an account?
               <Link
                 to="/sign-in"
-                className="ml-2 hover:text-red-700 transition duration-200 ease-in-out ml-1">
+                className="ml-2 hover:text-red-700 transition duration-200 ease-in-out">
                 Sign in
               </Link>
             </p>

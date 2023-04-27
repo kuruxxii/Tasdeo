@@ -52,7 +52,7 @@ export default function SignIn() {
     <section
       className="h-screen bg-cover flex flex-col justify-center items-center"
       style={{ backgroundImage: `url(${homebg})` }}>
-      <div className="lg:w-1/3 px-4 py-6">
+      <div className="w-full lg:w-1/3 px-4 py-6">
         <h1 className="text-white mb-4 text-3xl text-center mt-6 font-bold">
           Sign In
         </h1>

@@ -35,7 +35,7 @@ export default function ForgotPassword() {
     <section
       className="h-screen bg-cover flex flex-col justify-center items-center"
       style={{ backgroundImage: `url(${homebg})` }}>
-      <div className="lg:w-1/3 px-4 py-6">
+      <div className="w-full lg:w-1/3 px-4 py-6">
         <h1 className="text-3xl text-center mt-6 mb-4 font-bold text-white">
           Reset Password
         </h1>
@@ -53,7 +53,7 @@ export default function ForgotPassword() {
               Don't have an account?
               <Link
                 to="/sign-up"
-                className="ml-2 text-white hover:text-red-700 transition duration-200 ease-in-out ml-1">
+                className="ml-2 text-white hover:text-red-700 transition duration-200 ease-in-out">
                 Register
               </Link>
             </p>
