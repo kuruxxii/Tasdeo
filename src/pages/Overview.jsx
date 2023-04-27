@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../config/firebase";
 import Class from "../components/Class";
+import EmptyOverview from "../components/emptyOverview";
 
 export async function loader() {
   await requireAuth();
@@ -45,11 +46,16 @@ export default function Overview() {
       />
     );
   });
-  return (
-    <div className="overflow-auto">
-      <div className="flex flex-col items-center">
-        <div className="w-11/12 py-4">{classElements}</div>
+
+  if (classElements.length === 0) {
+    return <EmptyOverview />;
+  } else {
+    return (
+      <div className="overflow-auto">
+        <div className="flex flex-col items-center">
+          <div className="w-11/12 py-4">{classElements}</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
