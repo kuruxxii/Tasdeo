@@ -202,17 +202,17 @@ export default function ClassDetail() {
           <p className="text-base">Tag Filters: </p>
           <div className="text-sm flex space-x-4">
             <button
-              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "good" })}>
               GOOD
             </button>
             <button
-              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "bad" })}>
               BAD
             </button>
             <button
-              className="bg-slate-400 text-white px-4 py-2 rounded-full"
+              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "average" })}>
               AVERAGE
             </button>

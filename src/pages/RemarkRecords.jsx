@@ -118,7 +118,7 @@ export default function RemarkRecords() {
   return (
     <div className="w-full h-screen overflow-auto relative">
       <div className="mt-4">
-        <button className="text-sm bg-slate-400 bg-bright px-4 py-2 rounded-full fixed right-4 bottom-1/3">
+        <button className="text-sm bg-[#64759b] px-4 py-2 rounded-full fixed right-4 bottom-1/3">
           <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
         </button>
         <button className="text-sm bg-[#d7bb5b] bg-bright px-4 py-2 rounded-full ml-4">
