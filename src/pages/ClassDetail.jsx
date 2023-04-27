@@ -204,7 +204,7 @@ export default function ClassDetail() {
             onChange={handleFileUpload}></input>
           <button
             onClick={confirmAddition}
-            className="bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiUpload className="mr-1" />
             Upload
           </button>
@@ -216,23 +216,23 @@ export default function ClassDetail() {
           </div>
           <div className="flex space-x-4">
             <button
-              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "good" })}>
               GOOD
             </button>
             <button
-              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "bad" })}>
               BAD
             </button>
             <button
-              className="bg-[#64759b] text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "average" })}>
               AVERAGE
             </button>
             <button onClick={() => setSearchParams({})}>Reset</button>
           </div>
-          <button className="bg-[#d7bb5b] w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+          <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiDownload />
             <CSVLink
               data={csvData}

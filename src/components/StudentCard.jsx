@@ -19,7 +19,7 @@ export default function StudentCard({
         <p className="text-lg font-bold">{name}</p>
         <p>{studentId}</p>
         <p className="hidden lg:block">
-          {tag != null ? `status: ${tag}` : null}
+          {tag != null ? `Status: ${tag}` : null}
         </p>
         <p className="hidden lg:block">
           <span className="font-bold">{numOfRemarks}</span> History Remark(s)
@@ -35,7 +35,7 @@ export default function StudentCard({
       <Link
         to={`${studentId}/remarkform`}
         state={{ search: searchParams.toString() }}
-        className="text-sm bg-[#d7bb5b] px-4 py-2 rounded-full flex justify-center items-center">
+        className="text-sm bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full flex justify-center items-center">
         <BiPencil className="mr-1" />
         Leave a Remark
       </Link>
