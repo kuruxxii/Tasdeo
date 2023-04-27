@@ -20,7 +20,7 @@ export default function Class({
       </p>
       <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 absolute bottom-4 right-4 px-4 py-2 rounded-full flex justify-center items-center w-1/2 lg:w-1/6">
         <BiDoorOpen className="mr-1" />
-        <Link to={id}>Go to Class</Link>
+        <Link to={id}>GO TO CLASS</Link>
       </button>
     </div>
   );

@@ -128,7 +128,7 @@ export default function RemarkRecords() {
         <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-6 py-2 rounded-full ml-4 flex justify-center items-center">
           <BiDownload className="mr-1" />
           <CSVLink data={remarkData} filename={`${studentId}.csv`}>
-            Download CSV
+            DOWNLOAD
           </CSVLink>
         </button>
       </div>
@@ -137,7 +137,7 @@ export default function RemarkRecords() {
       </p>
       <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-6 py-2 rounded-full flex justify-center items-center fixed bottom-24 right-4 lg:right-16">
         <BiEditAlt className="mr-1" />
-        <Link to={`/overview/${classId}/${studentId}/remarkform`}>Remark</Link>
+        <Link to={`/overview/${classId}/${studentId}/remarkform`}>REMARK</Link>
       </button>
       <ol className="relative border-l border-[#d7bb5b] w-3/5 mx-auto">
         {elements}

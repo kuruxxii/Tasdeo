@@ -206,7 +206,7 @@ export default function ClassDetail() {
             onClick={confirmAddition}
             className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiUpload className="mr-1" />
-            Upload
+            UPLOAD
           </button>
         </div>
         <div className="flex flex-col space-y-4">
@@ -242,8 +242,8 @@ export default function ClassDetail() {
                   : `${thisClass.courseName}.csv`
               }>
               {tagFilter
-                ? `Download CSV with tag filter: ${tagFilter}`
-                : "Download CSV"}
+                ? `DOWNLOAD with tag filter "${tagFilter}"`
+                : "DOWNLOAD"}
             </CSVLink>
           </button>
         </div>

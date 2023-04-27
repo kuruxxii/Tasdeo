@@ -37,7 +37,7 @@ export default function StudentCard({
         state={{ search: searchParams.toString() }}
         className="text-sm bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full flex justify-center items-center">
         <BiPencil className="mr-1" />
-        Leave a Remark
+        LEAVE A REMARK
       </Link>
     </div>
   );
