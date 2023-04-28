@@ -8,7 +8,7 @@ export default function NotFound() {
     <div className="w-full h-screen flex flex-col justify-center items-center space-y-8">
       <Taken className="w-1/2 h-auto lg:w-1/4" />
       <p className="lg:text-xl">
-        The page you are looking has been taken by aliens!
+        The page you are looking for has been taken by aliens!
       </p>
       <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full flex justify-center items-center w-1/2 lg:w-1/6">
         <BiArrowBack className="mr-1" />
