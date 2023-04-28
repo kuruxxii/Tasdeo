@@ -10,7 +10,7 @@ export default function About() {
         <h3 className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
           To Whom It May Concern:
         </h3>
-        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+        <p className="w-4/5 lg:w-3/5 text-base lg:text-lg text-white text-center lg:leading-loose">
           The name Tasdeo is derived from the Chinese idiom "教学相長" (Teachers
           and students develop each other).
         </p>
