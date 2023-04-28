@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import homebg from "../images/homebg.jpg";
 
 export default function Home() {
+  // throw new Error("check error page");
   return (
     <div
       className="h-screen bg-cover flex flex-col justify-center items-center"
