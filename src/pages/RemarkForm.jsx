@@ -91,7 +91,7 @@ export default function RemarkForm() {
   }
   return (
     <div className="w-full h-screen relative text-sm lg:text-base">
-      <button className="bg-gray-300 hover:bg-gray-400 active:bg-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full fixed top-16 right-4 lg:right-16 flex justify-center items-center">
+      <button className="bg-[#dee1e7] hover:bg-[#9d98ad] active:bg-[#776c8b] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full fixed top-16 right-4 lg:right-16 flex justify-center items-center">
         <BiExit className="mr-1" />
         <Link to={`/overview/${classId}?${search}`}>RETURN</Link>
       </button>
