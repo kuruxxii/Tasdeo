@@ -11,12 +11,12 @@ export default function StudentCard({
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
   return (
-    <div className="mb-4 lg:mb-8 flex justify-between items-center lg:flex-col lg:space-y-4 lg:items-center">
+    <div className="text-sm lg:text-base mb-4 lg:mb-8 flex justify-between items-center lg:flex-col lg:space-y-4 lg:items-start">
       <Link
         to={`${studentId}/remarkrecords`}
         state={{ search: searchParams.toString() }}
         className="flex flex-col space-y-2">
-        <p className="text-lg font-bold">{name}</p>
+        <p className="text-base lg:text-lg font-bold">{name}</p>
         <p>{studentId}</p>
         <p className="hidden lg:block">
           {tag != null ? `Status: ${tag}` : null}
@@ -35,7 +35,7 @@ export default function StudentCard({
       <Link
         to={`${studentId}/remarkform`}
         state={{ search: searchParams.toString() }}
-        className="text-sm bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full flex justify-center items-center">
+        className="text-sm bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 px-4 py-2 rounded-full flex justify-center items-center lg:self-start">
         <BiPencil className="mr-1" />
         LEAVE A REMARK
       </Link>

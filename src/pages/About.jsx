@@ -6,10 +6,13 @@ export default function About() {
     <div
       className="h-screen bg-cover flex flex-col justify-center"
       style={{ backgroundImage: `url(${homebg})` }}>
-      <div className="flex flex-col items-center space-y-16">
+      <div className="flex flex-col items-center space-y-8">
+        <h3 className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          To Whom It May Concern:
+        </h3>
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
-          The name Tasdeo is derived from the Chinese idiom "教学相長" (Teacher
-          and student develop each other).
+          The name Tasdeo is derived from the Chinese idiom "教学相長" (Teachers
+          and students develop each other).
         </p>
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
           The Tasdeo project is not intended to monitor students in a
@@ -28,6 +31,15 @@ export default function About() {
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
           I would like to express my gratitude to my best friend XuanYi Wang for
           providing me with a lot of help in aesthetics and design methodology.
+        </p>
+        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          I wish you every success in your future endeavors.
+        </p>
+        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          Best,
+        </p>
+        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          Zihan Lin
         </p>
       </div>
     </div>
