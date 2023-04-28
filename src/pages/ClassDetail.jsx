@@ -181,15 +181,17 @@ export default function ClassDetail() {
 
   return (
     <div className="shadow-lg bg-white h-screen mt-4 rounded-xl overflow-auto w-11/12 mx-auto py-4 flex flex-col">
-      <p className="text-lg lg:text-2xl font-bold text-center mb-4">
+      <p className="text-xl lg:text-2xl font-bold text-center mb-4">
         {thisClass.courseName}
       </p>
-      <div className="text-sm lg:text-base mt-2 mb-4 px-4 flex flex-col space-y-8">
+      <div className="text-base lg:text-lg mt-2 mb-4 px-4 flex flex-col space-y-8">
         <div className="flex flex-col space-y-4">
           <div className="flex items-center">
-            <BiFile className="mr-2" />
-            <label htmlFor="register" className="font-bold self-start">
-              Add Students for This Class (.csv only)
+            <BiFile className="mr-2 text-lg lg:text-xl" />
+            <label
+              htmlFor="register"
+              className="text-lg lg:text-xl font-bold self-start">
+              Add Students (.csv only)
             </label>
           </div>
           <input
@@ -204,35 +206,35 @@ export default function ClassDetail() {
             onChange={handleFileUpload}></input>
           <button
             onClick={confirmAddition}
-            className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/2 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+            className="text-sm lg:text-base bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-1/3 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiUpload className="mr-1" />
             UPLOAD
           </button>
         </div>
         <div className="flex flex-col space-y-4">
           <div className="flex items-center">
-            <BiFilter />
-            <p className="ml-2 font-bold">Tag Filters</p>
+            <BiFilter className="text-lg lg:text-xl" />
+            <p className="ml-2 font-bold text-lg lg:text-xl">Tag Filters</p>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 text-sm lg:text-base">
             <button
-              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-1 lg:py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "good" })}>
               GOOD
             </button>
             <button
-              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-1 g:py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "bad" })}>
               BAD
             </button>
             <button
-              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-2 rounded-full"
+              className="bg-[#c4b6b2] hover:bg-[#eec195] active:bg-[#5d4d2b] transition duration-150 ease-in-out hover:shadow-lg text-white px-4 py-1 lg:py-2 rounded-full"
               onClick={() => setSearchParams({ tag: "average" })}>
               AVERAGE
             </button>
             <button onClick={() => setSearchParams({})}>Reset</button>
           </div>
-          <button className="bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
+          <button className="text-sm lg:text-base bg-[#d7bb5b] hover:bg-green-500 active:bg-green-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 lg:w-1/4 mx-auto px-4 py-2 rounded-full flex items-center justify-center space-x-2">
             <BiDownload />
             <CSVLink
               data={csvData}
@@ -248,11 +250,11 @@ export default function ClassDetail() {
           </button>
         </div>
         <div className="flex flex-col space-y-4">
-          <div className="font-bold flex items-center ml-1">
-            <BiGroup className="mr-2" />
+          <div className="font-bold flex items-center ml-1 text-lg lg:text-xl">
+            <BiGroup className="mr-2 text-lg lg:text-xl" />
             Students in This Class
           </div>
-          <div className="text-sm px-1 w-full lg:grid lg:grid-cols-5">
+          <div className="px-1 lg:grid lg:grid-cols-5">
             {studentCardElements}
           </div>
         </div>
