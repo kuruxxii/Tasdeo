@@ -8,22 +8,26 @@ export default function About() {
       style={{ backgroundImage: `url(${homebg})` }}>
       <div className="flex flex-col items-center space-y-16">
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit
+          The name Tasdeo is derived from the Chinese idiom "教学相長" (Teacher
+          and student develop each other).
         </p>
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit
+          The Tasdeo project is not intended to monitor students in a
+          high-handed manner or to serve as a credit system that stigmatizes
+          students' academic careers. It is designed to provide a reference
+          other than standardized grades and to strengthen the connection and
+          interaction between students and professors.
+        </p>
+        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          As a student for many years, I understand that academic performance is
+          closely related to individual talent, physical and mental health, hard
+          work, and even luck. It is not always the case that a good professor
+          can teach good students, and academic performance is not the only
+          factor that determines one's life path.
+        </p>
+        <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
+          I would like to express my gratitude to my best friend XuanYi Wang for
+          providing me with a lot of help in aesthetics and design methodology.
         </p>
       </div>
     </div>
