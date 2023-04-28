@@ -29,7 +29,7 @@ export default function About() {
           factor that determines one's life path.
         </p>
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
-          I would like to express my gratitude to my best friend XuanYi Wang for
+          I would like to express my gratitude to my best friend Xuanyi Wang for
           providing me with a lot of help in aesthetics and design methodology.
         </p>
         <p className="w-4/5 lg:w-1/2 text-base lg:text-lg text-white text-center lg:leading-loose">
