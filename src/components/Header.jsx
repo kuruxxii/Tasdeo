@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
-import logoUrl from "../images/logo.png";
 
 export default function Header() {
   const activeStyles = {
@@ -14,8 +13,7 @@ export default function Header() {
   return (
     <header className="h-12 flex justify-around items-center text-sm bg-[#7b7137] text-[#e1dbcc]">
       <Link to="/">
-        {/* <img src={logoUrl} alt="Tasdeo Logo" className="object-cover w-48" /> */}
-        <span>Tasdeo</span>
+        <span className="text-lg lg:text-xl">Tasdeo</span>
       </Link>
       <nav className="flex justify-between items-center space-x-4">
         <NavLink
