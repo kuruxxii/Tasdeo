@@ -24,7 +24,7 @@ export default function Class({
     }
   }
   return (
-    <div className="shadow-lg bg-white h-48 rounded-xl space-y-4 px-6 py-6 mb-4 relative flex flex-col justify-around items-left relative">
+    <div className="shadow-lg bg-white h-48 rounded-xl space-y-4 px-6 py-6 mb-4 relative flex flex-col justify-around items-left">
       <p className="text-lg font-bold">{courseName}</p>
       <span className="text-base capitalize">{`${year} ${semester}`}</span>
       <p className="text-base capitalize">section {section}</p>
