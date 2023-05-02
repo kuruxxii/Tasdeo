@@ -19,8 +19,8 @@ export default function Class({
     );
     if (decision) {
       await deleteDoc(doc(db, "classes", id));
-      toast.success("Deletion Completed!");
       window.location.reload();
+      toast.success("Deletion Completed!");
     }
   }
   return (

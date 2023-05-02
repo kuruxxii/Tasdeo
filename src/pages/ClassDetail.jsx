@@ -190,8 +190,8 @@ export default function ClassDetail() {
       await updateDoc(clsRef, {
         studentIds: afterDeletion,
       });
-      toast.success("Deletion Completed!");
       window.location.reload();
+      toast.success("Deletion Completed!");
     }
   }
 
