@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { BiPencil } from "react-icons/bi";
+import { BiUserX } from "react-icons/bi";
 
 export default function StudentCard({
   studentId,
@@ -8,10 +9,11 @@ export default function StudentCard({
   tag,
   numOfRemarks,
   positiveRate,
+  deleteStudent,
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
   return (
-    <div className="text-sm lg:text-base mb-4 lg:mb-8 flex justify-between items-center lg:flex-col lg:space-y-4 lg:items-start">
+    <div className="text-sm lg:text-base mb-4 lg:mb-8 flex justify-between items-center lg:flex-col lg:space-y-4 lg:items-start relative">
       <Link
         to={`${studentId}/remarkrecords`}
         state={{ search: searchParams.toString() }}
@@ -39,6 +41,10 @@ export default function StudentCard({
         <BiPencil className="mr-1" />
         LEAVE A REMARK
       </Link>
+      <BiUserX
+        className="absolute hidden lg:block text-2xl right-4 -top-3 text-slate-300 hover:text-slate-600 active:text-slate-900"
+        onClick={() => deleteStudent(studentId)}
+      />
     </div>
   );
 }
