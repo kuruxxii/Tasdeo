@@ -114,6 +114,7 @@ export default function ClassDetail() {
           remarksOfThisStudent.filter((remark) => remark.type === "positive")
             .length / remarksOfThisStudent.length
         }
+        deleteStudent={deleteStudent}
       />
     );
   });
@@ -178,6 +179,21 @@ export default function ClassDetail() {
     }
     setTimeout(() => (event.currentTarget.disabled = false), 5000);
   };
+
+  async function deleteStudent(studentId) {
+    let decision = confirm(
+      "This deletion cannot be recovered. Are you sure to proceed?"
+    );
+    if (decision) {
+      let afterDeletion = thisClass.studentIds.filter((id) => id !== studentId);
+      const clsRef = doc(db, "classes", classid);
+      await updateDoc(clsRef, {
+        studentIds: afterDeletion,
+      });
+      toast.success("Deletion Completed!");
+      window.location.reload();
+    }
+  }
 
   return (
     <div className="shadow-lg bg-white h-screen mt-4 rounded-xl overflow-auto w-11/12 mx-auto py-4 flex flex-col">
