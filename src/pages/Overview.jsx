@@ -43,6 +43,7 @@ export default function Overview() {
         section={cls.section}
         studentIds={cls.studentIds}
         id={cls.classId}
+        db={db}
       />
     );
   });
